@@ -9,7 +9,7 @@ Quality and Testing.
 There are a wide variety of IT projects, with different programming
 languages, methodologies and business domains.
 Practices change frequently over time, new technologies arise,
-some disapear after several years, some are broadly used and are even older
+some disappear after several years, some are broadly used and are even older
 than the programmers that use them. \\
 Quality and Testing concerns are not new.
 Prior to 2000, there was already projects with a very high level of quality
@@ -25,14 +25,15 @@ projects. \\
 \newline
 However, even with the great enthusiasm of the community, there are still
 projects where programmers, managers and clients are not convinced by
-those methodologies and technologies and keep doing it the old way. \\
+these methodologies and technologies and keep doing it the old way. \\
 Poor design, no refactoring nor code reviews, no unit testing, minimum
 manual functional tests, heterogeneous environments etc.
 The list can be very long, so do for the consequences.
-In the worst case, people give up and accept those bad practices so they
+In the worst case, people give up and accept these bad practices so they
 integrate them as part of the normal process. \\
 Sometimes, it's hard to see the value of a tool that, at first glance, only
-cost a lot of efforts, time and therefore money, for no extra business value.
+cost a lot of
+efforts, time and therefore money, for no extra business value.
 The benefits in a long run are generally ignored or under estimated.
 The change of the team's habits does have a cost, requires new trainings,
 new processes, some extra management for the new methodologies and
@@ -45,7 +46,33 @@ the features of existing methods and tools and then show how to easily
 integrate them all into a project.
 
 \section{Relevant Context}\label{sec:relevant-context}
-Contexts
+This section describes which contexts are relevant to this problematic and
+where the proposed solution is suitable. \\
+This problematic is common on non-critical IT projects using
+programming languages such as Java, Javascript, Python etc.
+By non-critical, we reference any project where there is no human life,
+financial market, aerospace system and any other "critical domain" at the
+core of the application. \\
+There are often a Web UI and an exposed API for the end users.
+Each of these interfaces have their dedicated tools for development and
+testing.
+The management of all the different tools can be quite tricky and directly
+impacts the cost of maintenance. \\
+These projects can have multiples teams that work on, such as business,
+dev or testing.
+Some teams usually don't have technical skills, like business or even the
+testing team.
+The communication between them is often hard and sometimes there is almost
+no communication. \\
+The methodology used, either Agile or Waterfall, does not matter.
+Usually, an Agile project is more likely to follow good practices in
+Quality and Testing but this is not necessarily the case.
+The proposed solution is not Agile-oriented and will work on Waterfall
+projects. \\
+Finally, as Quality has a cost, low-quality projects usually don't have an
+infinite budget.
+Therefore the proposed solution only use community or free licences tools
+and try to reuse at most as possible elements, tools, data etc.
 
 \section{Justification}\label{sec:justification}
 I have decided
