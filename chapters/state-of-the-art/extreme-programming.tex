@@ -70,15 +70,25 @@ your fresh test will cover you for this. \\
 Now you have a clean and working code, you can write a new failing test and
 repeat the process again. \\
 \newline
+This approach is very incremental, we only go with very small steps :
+baby steps.
+Breaking a complex problem in smaller simple problems helps to tackle it
+is a common good practice.
+Usually, the feature is broken into a list of small cases and the programmer
+starts with the simplest case.
+When the light is green, he looks for the next simplest case and continue
+until the moment where he realizes that he is having a lot of duplicated
+code.
+After that, he can make an effective refactor and abstracts his code to make
+it more generic and handle the rest of the 'simple' cases.
+He can now write a test for a more complex case and do the same thing again.
+\\
+\newline
 TDD allows programmers to be confident with their tests because they
 describe how the production code should behave.
 The production code was written only to make these tests pass, so if one test
 fails again, it's because something has been broken somewhere and there is a
 real regression.
-The incremental approach, called baby steps, is also very important in
-the process.
-Breaking a complex problem in smaller simple problem is a common good
-practice.
 
 \subsection{Pair Programming}\label{subsec:pair-programming}
 Pair Programming
