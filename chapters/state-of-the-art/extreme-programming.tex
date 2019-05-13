@@ -88,7 +88,16 @@ TDD allows programmers to be confident with their tests because they
 describe how the production code should behave.
 The production code was written only to make these tests pass, so if one test
 fails again, it's because something has been broken somewhere and there is a
-real regression.
+real regression. \\
+\newline
+Finally, a quick mention of the two types of TDD: Detroit (Classicist)
+vs London (Mockist).
+The London style tends to overuse mocks (that will be detailed later)
+where Detroit style avoids them.
+Detroit style is more a black-box and doesn't try to set up the
+System Under Test (SUT) before the test, where London style is a white box
+and makes a clear distinction between the and its Collaborators
+(its dependencies).
 
 \subsection{Pair Programming}\label{subsec:pair-programming}
 Pair Programming
