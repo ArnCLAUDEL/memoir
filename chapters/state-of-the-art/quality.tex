@@ -130,7 +130,25 @@ Companies also try to reduce the time to market by creating starter kit,
 reusing CI platform and cloud providers.
 
 \subsubsection{Behaviour Parametrization}
-Behaviour Parametrization
+Behaviour Parametrization is included in the DRY principle and is very
+common in Functional Programming. \\
+In traditional code, if we want to filter elements of a list of String
+for example, we would write a for loop and write our condition inside.
+Every element that matches the condition are then added to a previously
+created list. \\
+This works perfectly, but if tomorrow we want to add the same feature,
+but with a slightly different condition.
+We must rewrite the for loop, recreate a list and filter our elements.
+We've just written Boilerplate code, that is duplicated lines of code
+that are almost identical. \\
+\newline
+Behaviour Parametrization exactly solves that problem by externalizing
+the behaviour (in our example, the filter condition) and reusing the
+common code (the for loop and list creation). \\
+There are well known Collection's methods such as map, filter or reduce
+that takes behaviour as parameter.
+Some cloud providers also provides ready-to-use managed services,
+where you simply add your business code.
 
 \subsubsection{YAGNI}
 YAGNI
