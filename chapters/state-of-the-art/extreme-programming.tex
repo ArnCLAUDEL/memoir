@@ -13,7 +13,8 @@ relevant to our solution.
     \item[Simplicity :] Minimum effort for maximum value. \\
     The idea is to always turn complex situations in small simple steps,
     making them easy to implement and reducing the cost of failure.
-    \item[Commmunication :] Daily face to face between every team member. \\
+    \item[Commmunication :] Daily face to face between every team member.
+    \\
     Everyone on a team works jointly at every stage of the project.
     \item[Feedback :] Constant and Early feedback on the product. \\
     Frequent demo of the product in order to always have a software that
@@ -25,79 +26,83 @@ relevant to our solution.
     We don't document excuses for failure because we plan to succeed.
 \end{description}
 
-\subsection{Test Driven Development}\label{subsec:test-driven-development}
+\subsection{Test Driven Development}
+\label{subsec:test-driven-development}
 %https://medium.freecodecamp.org/test-driven-development-what-it-is
 %-and-what-it-is-not-41fa6bca02a2
-Test Driven Development (TDD) is a very interesting methodology for writing
-tests.
+Test Driven Development (TDD) is a very interesting methodology for
+writing tests.
 Uncle Bob describes TDD with 3 rules :
 
 \begin{quote}
 \begin{itemize}
-\item You are not allowed to write any production code unless it is to make
-a failing unit test pass.
-\item You are not allowed to write any more of a unit test than is sufficient
-to fail;
+\item You are not allowed to write any production code unless it is to
+make a failing unit test pass.
+\item You are not allowed to write any more of a unit test than is
+sufficient to fail;
 and compilation failures are failures.
-\item You are not allowed to write any more production code than is sufficient
+\item You are not allowed to write any more production code than is
+sufficient
 to pass the one failing unit test.
 \end{itemize}
 \end{quote}
 
-These rules are very restrictive and they don't look very natural compared to
-what we use to do.
-There is a method that allow us to easily follow these rules, the Red Green
-Refactor cycle. \\
+These rules are very restrictive and they don't look very natural
+compared to what we use to do.
+There is a method that allow us to easily follow these rules, the
+Red Green Refactor cycle. \\
 \newline
 First you need to write a failing test and see the red light.
-But your test cannot even run, it doesn't compile because there is actually
-no production code.
-So you create your class with empty methods in order to be able to run the
-test. \\
+But your test cannot even run, it doesn't compile because there is
+actually no production code.
+So you create your class with empty methods in order to be able to run
+the test. \\
 And now you have a red light. \\
 \newline
 This red light must disappear as soon as possible, so you have to write
 the minimum amount of code required to turn the light green.
-The minimum means that you are rushing to the green light, duplicated code,
-hardcoded values or worst if you want, the code simply need to work. \\
+The minimum means that you are rushing to the green light, duplicated
+code, hardcoded values or worst if you want, the code simply need to
+work. \\
 Now you've reached the green light. \\
 \newline
 Here you have a terrible (but working) code.
 All you have to do now is refactoring, eliminating duplication,
 extracting methods, variables, constants etc.
-You don't have the fear anymore of breaking the feature while refactoring,
-your fresh test will cover you for this. \\
-Now you have a clean and working code, you can write a new failing test and
-repeat the process again. \\
+You don't have the fear anymore of breaking the feature while
+refactoring, your fresh test will cover you for this. \\
+Now you have a clean and working code, you can write a new failing test
+and repeat the process again. \\
 \newline
 This approach is very incremental, we only go with very small steps :
 baby steps.
 Breaking a complex problem in smaller simple problems helps to tackle it
-is a common good practice.
-Usually, the feature is broken into a list of small cases and the programmer
-starts with the simplest case.
-When the light is green, he looks for the next simplest case and continue
-until the moment where he realizes that he is having a lot of duplicated
-code.
-After that, he can make an effective refactor and abstracts his code to make
-it more generic and handle the rest of the 'simple' cases.
-He can now write a test for a more complex case and do the same thing again.
-\\
+and is a good practice in general. \\
+Usually, the feature is split into a list of small cases and the
+programmer starts with the simplest case.
+When the light is green, he looks for the next simplest case and
+continues until he realizes that there's a lot of duplicated code. \\
+After that, he can make an effective refactor and abstracts his code to
+make it more generic and handle the rest of the 'simple' cases.
+He can now write a test for a more complex case and do the same thing
+again. \\
 \newline
 TDD allows programmers to be confident with their tests because they
 describe how the production code should behave.
-The production code was written only to make these tests pass, so if one test
-fails again, it's because something has been broken somewhere and there is a
-real regression. \\
+The production code was written only to make these tests pass, so if
+one test fails few days later, it's because something has been broken
+somewhere and there is a real regression. \\
 \newline
 Finally, a quick mention of the two types of TDD: Detroit (Classicist)
 vs London (Mockist).
 The London style tends to overuse mocks (that will be detailed later)
-where Detroit style avoids them.
-Detroit style is more a black-box and doesn't try to set up the
-System Under Test (SUT) before the test, where London style is a white box
-and makes a clear distinction between the and its Collaborators
-(its dependencies).
+where Detroit style tries to avoid them. \\
+Detroit style is a black-box approach and doesn't want to set up the
+Collaborators of the System Under Test (SUT).
+Where London style is more like a white box and makes a clear distinction
+between the SUT and its Collaborators.
+The SUT is completely isolated from its Collaborators, so the test will
+always behave exactly the same, even if a collaborator has been modified.
 
 \subsection{Pair Programming}\label{subsec:pair-programming}
 Pair Programming
