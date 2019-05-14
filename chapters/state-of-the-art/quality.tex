@@ -1,31 +1,76 @@
 \section{Quality}\label{sec:quality}
 We've talked about Software Craftsmanship and Extreme Programming,
-one is a culture, the other is a methodology but both focus on Quality. \\
+one is a culture, the other is a methodology but both focus on Quality.
+\\
 This chapter will first present the metrics given by the code analysis
 tool Sonar and how we can use it during the refactoring phase.
 Then we'll present a bunch of principles and design rules that
 are used to improve the code quality and ease the maintenance.
 
-\subsection{Metrics}\label{subsec:metrics}
-Metrics
+\subsection{Sonar}\label{subsec:sonar}
+%https://docs.sonarqube.org/latest/user-guide/issues/
+%https://docs.sonarqube.org/latest/user-guide/concepts/
+Sonar is a static code analysis tool, this means that it inspects
+directly the source code and try to find some potential bugs, security
+holes, duplicated code and code smells.
+It is based on a huge repository of rules and common good practices.
+Each rule comes with a description and good/bad examples. \\
+After the analysis, Sonar gives a global grade (A, B, C etc.) and
+publishes a detailed report with every broken rules.
+In a CI platform, sonar analysis must be performed for every commit and
+developers must keep an eye on the report. \\
+\newline
+Any broken rule during the analysis will create an issue in the report.
+There are three types of issues :
 
-\subsubsection{Sonar}
-Sonar
+\begin{description}
+    \item[Bug :]
+    An issue that represents something wrong in the code.
+    If this has not broken yet, it will, and probably at the worst
+    possible moment.
+    This needs to be fixed.
+    Yesterday.
+    \item[Vulnerabilty :]
+    A security-related issue which represents a backdoor for attackers.
+    \item[Code Smell :]
+    A maintainability-related issue in the code.
+    Leaving it as-is means that at best maintainers will have a harder
+    time than they should making changes to the code.
+    At worst, they'll be so confused by the state of the code that
+    they'll introduce additional errors as they make changes.
+\end{description}
 
-\subsubsection{Bug}
-Bug
+Every issue have 5 level of severity :
 
-\subsubsection{Security Issue}
-Security Issue
+\begin{description}
+    \item[BLOCKER :]
+Bug with a high probability to impact the behavior of the application
+in production: memory leak, unclosed JDBC connection, ....
+The code MUST be immediately fixed.
+    \item[CRITICAL :]
+Either a bug with a low probability to impact the behavior of the
+application in production or an issue which represents a
+security flaw: empty catch block, SQL injection, \ldots
+The code MUST be immediately reviewed.
+    \item[MAJOR :]
+Quality flaw which can highly impact the developer productivity:
+uncovered piece of code, duplicated blocks, unused parameters,
+    \ldots
+    \item[MINOR :]
+Quality flaw which can slightly impact the developer productivity:
+lines should not be too long, "switch" statements should have at
+least 3 cases, \ldots
+    \item[INFO :]
+Neither a bug nor a quality flaw, just a finding.
+\end{description}
 
-\subsubsection{Code Smell}
-Code Smell
-
-\subsubsection{Technical Debt}
-Technical Debt
-
-\subsubsection{Code Coverage}
-Code Coverage
+We are not going to detail deeply Sonar rules, there're too many of them,
+this actually why Sonar exists.
+Programmers are humans and they can easily leave an unused variable, an
+opened resource, forget to check for a likely null value or add an if
+statement with a condition that is always false. \\
+Sonar is great companion that integrates perfectly with IDEs and will
+necessarily teach something new to anyone using it.
 
 \subsection{Principles and Design}\label{subsec:principles}
 
