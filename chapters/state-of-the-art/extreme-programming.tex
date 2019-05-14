@@ -174,4 +174,44 @@ There are a lot of configurations and the best one is always the one
 chosen and preferred by the team that will use it.
 
 \subsection{Continuous Integration}\label{subsec:continuous-integration}
-Continuous Integration
+%https://martinfowler.com/articles/continuousIntegration.html
+%http://www.extremeprogramming.org/rules/integrateoften.html
+In this last section, we'll talk about Continuous Integration (CI).
+CI is now a standard and helps to reduce the harm of integration phase
+after several days or weeks of work.
+\begin{quotation}
+    Developers should be integrating and commiting code into the code
+    repository every few hours, when ever possible.
+    In any case never hold onto changes for more than a day.
+\end{quotation}
+
+Local work doesn't take into account new changes and your code could rely
+on obsolete features.
+You're also likely to recreate a utility feature that already exists and
+could have been reused.
+Generally, the longer your code stays on your local machine, the harder
+to integrate into the repository. \\
+\newline
+This is were the CI platform helps team by building and testing
+the application whenever it's possible.
+A periodic call is made to the repository to see if there are new
+commits.
+If so, then the a complete checkout of the source code is made.
+The platform compiles, packages and tests the application.
+A report is then produces and displayed to a dashboard accessible by the
+whole team. \\
+\newline
+CI does not reduce the number of bugs but it helps to detect them as soon
+as possible.
+It will be easier to fix a bug detected by the CI because you know when
+the last build passed and can see the new committed code that failed
+the current build.
+When a build fails, it's because something went wrong and it must be
+fixed quickly, else it will block other programmers from integrating
+their features. \\
+\newline
+CI is very tied to the notion of Collective Ownership, which
+encourages every programmer to contribute to the project, fix bugs,
+improve a feature, its design etc.
+With CI, you can ensure that your contribution doesn't break any previous
+work.
