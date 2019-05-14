@@ -108,7 +108,29 @@ However a public method inherited from an interface should check for the
 correctness of the received parameters.
 
 \subsubsection{DRY}
-DRY
+Don't Repeat Yourself is a principle against code duplication and in
+favour of reusable code. \\
+Duplicated values and logic mean O(n) complexity when a change is needed
+instead of O(1).
+Maintenance becomes then a nightmare and in the worst case some lines of
+code are omitted when refactoring, leading to inconsistent logic in the
+application. \\
+\newline
+This principle is therefore vital for business logic but also relevant
+for technical and utility features.
+There're plenty of libraries that implements common algorithms, file
+manipulation, parsing etc.
+So it's usually a bad idea to try to reimplement locally something that
+have been better done and used by the whole community. \\
+\newline
+DRY is also a global principle and can be applied at a much higher level.
+More and more production-ready frameworks or services only requires
+the business code and can be immediately deployed.
+Companies also try to reduce the time to market by creating starter kit,
+reusing CI platform and cloud providers.
+
+\subsubsection{Behaviour Parametrization}
+Behaviour Parametrization
 
 \subsubsection{YAGNI}
 YAGNI
@@ -133,6 +155,3 @@ Immutability
 
 \subsubsection{CQS}
 CQS
-
-\subsubsection{Behaviour Parametrization}
-Behaviour Parametrization
