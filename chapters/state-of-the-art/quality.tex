@@ -84,7 +84,28 @@ SOLID
 Clean Code
 
 \subsubsection{KISS}
-KISS
+Keep It Simple Stupid is a \textit{simple} principle that encourages to
+always try the simplest approach to solve a problem.
+It's very easy to over engineer a solution to a problem, because we want
+to cover all the possible cases or we want to add some extra
+features that may be useful later.
+This over engineering badly affects the maintainability of the code base
+because the feature is overwhelmed by an unnecessary complex code. \\
+\newline
+KISS principle is often used in TDD because each step is a small
+problem that solves a bigger complex problem.
+In the Red, Green, Refactor cycle, during the Red phase, we must write
+the simplest code to pass the test, this is exactly what KISS is about.
+\\
+\newline
+One could argue the simplest solution is not always the best one.
+Sometimes it's nice to add some extra code to handle failure cases, add
+defensive code for method parameters etc. \\
+It depends on the context, for example a small private method, can make
+legit assumptions and could omit to check null values when using
+local field.
+However a public method inherited from an interface should check for the
+correctness of the received parameters.
 
 \subsubsection{DRY}
 DRY
