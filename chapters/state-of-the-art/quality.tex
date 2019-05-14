@@ -109,19 +109,19 @@ correctness of the received parameters.
 
 \subsubsection{DRY}
 Don't Repeat Yourself is a principle against code duplication and in
-favour of reusable code. \\
+favour of reusable items in general. \\
 Duplicated values and logic mean O(n) complexity when a change is needed
-instead of O(1).
-Maintenance becomes then a nightmare and in the worst case some lines of
+instead of O(1), if it was written in a single place.
+Maintenance then becomes a nightmare and in the worst case, some lines of
 code are omitted when refactoring, leading to inconsistent logic in the
 application. \\
 \newline
 This principle is therefore vital for business logic but also relevant
 for technical and utility features.
 There're plenty of libraries that implements common algorithms, file
-manipulation, parsing etc.
+manipulation, serialization etc.
 So it's usually a bad idea to try to reimplement locally something that
-have been better done and used by the whole community. \\
+have been better done and is used by the whole community. \\
 \newline
 DRY is also a global principle and can be applied at a much higher level.
 More and more production-ready frameworks or services only requires
