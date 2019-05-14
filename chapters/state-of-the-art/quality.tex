@@ -2,7 +2,7 @@
 We've talked about Software Craftsmanship and Extreme Programming,
 one is a culture, the other is a methodology but both focus on Quality.
 \\
-This chapter will first present the metrics given by the code analysis
+This chapter will first present the metrics given by the analysis
 tool Sonar and how we can use it during the refactoring phase.
 Then we'll present a bunch of principles and design rules that
 are used to improve the code quality and ease the maintenance.
@@ -40,7 +40,7 @@ There are three types of issues :
     they'll introduce additional errors as they make changes.
 \end{description}
 
-Every issue have 5 level of severity :
+There are 5 levels of severity :
 
 \begin{description}
     \item[BLOCKER :]
@@ -65,11 +65,11 @@ Neither a bug nor a quality flaw, just a finding.
 \end{description}
 
 We are not going to detail deeply Sonar rules, there're too many of them,
-this actually why Sonar exists.
+this is actually why Sonar exists.
 Programmers are humans and they can easily leave an unused variable, an
 opened resource, forget to check for a likely null value or add an if
 statement with a condition that is always false. \\
-Sonar is great companion that integrates perfectly with IDEs and will
+Sonar is a great companion that integrates perfectly with IDEs and will
 necessarily teach something new to anyone using it.
 
 \subsection{Principles and Design}\label{subsec:principles}
