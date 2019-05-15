@@ -195,11 +195,22 @@ Value Objects
 \subsubsection{Null Object Pattern}
 Null Object Pattern
 
-\subsubsection{Fail Fast}
-Fail Fast
-
 \subsubsection{Side Effect}
 Side Effect
+
+\subsubsection{Fail Fast}
+Fail Fast principle prevents the application from continuing a process if
+it's likely to fail in the next steps. \\
+\newline
+This principle is usually implemented using a defensive code, that checks
+the method parameter and ensure that every value, variable, service etc.
+are available and consistent before continuing the process.
+If some method parameters or field are null, then any method call on
+them will necessarily fail. \\
+At first glance, it doesn't matter if it fails now or later, it will
+always fail in the end.
+Problems come with side effects that we previously introduced.
+// TODO talk about side effects that occurs before the failure
 
 \subsubsection{Immutability}
 Immutability
