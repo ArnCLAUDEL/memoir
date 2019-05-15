@@ -213,11 +213,11 @@ it's likely to fail in the next steps. \\
 This principle is usually implemented using a defensive code, that checks
 the method parameters and ensure that every value, variable, service etc.
 are available and consistent before continuing the process.
-If some method parameters or field are null for example, then any further
+If some method parameters or fields are null for example, then any further
 method call will necessarily fail. \\
 \newline
 At first glance, it doesn't matter if it fails now or later, in the end
-it will always fail.
+it will always fail no matter what.
 However the process may have several side effect operations and the null
 parameter may be used only between two operations. \\
 This means that the first operation is made even tough we already know
