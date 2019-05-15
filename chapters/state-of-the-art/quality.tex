@@ -161,7 +161,7 @@ This is where DRY and KISS principles, that we mentioned earlier,
 are very important to have a cleaner code.
 Class, method and variable names should be meaningful and self
 describing, so there's no need of extra comment to explain the logic.
-The code accross the project always follows the same standards, has the
+The code across the project always follows the same standards, has the
 same format and is well indented. \\
 \newline
 Nested blocks (for/if/else \ldots) shouldn't go to deep
@@ -177,7 +177,17 @@ Usually, when there are several nested lines of code, it is better to
 extract them to a private method.
 
 \subsubsection{Magic Numbers}
-Magic Numbers
+Magic Numbers represent all the hardcoded values in the code that have
+a real meaning and logic. \\
+\newline
+These values are likely to change in the future and probably need an
+explanation or a comment to understand what they really are.
+The code is less readable because its intent is not clear and the
+maintenance becomes harder because every location where the value
+is hardcoded must be modified. \\
+A good practice is first to extract these values to variables or
+constants and, if the value is very dynamic, externalize the
+parameterization in a config file so it's easier to change.
 
 \subsubsection{Value Objects}
 Value Objects
