@@ -211,13 +211,29 @@ Fail Fast principle prevents the application from continuing a process if
 it's likely to fail in the next steps. \\
 \newline
 This principle is usually implemented using a defensive code, that checks
-the method parameter and ensure that every value, variable, service etc.
+the method parameters and ensure that every value, variable, service etc.
 are available and consistent before continuing the process.
-If some method parameters or field are null, then any method call on
-them will necessarily fail. \\
-At first glance, it doesn't matter if it fails now or later, it will
-always fail in the end.
-%TODO talk about side effects that occurs before the failure
+If some method parameters or field are null for example, then any further
+method call will necessarily fail. \\
+\newline
+At first glance, it doesn't matter if it fails now or later, in the end
+it will always fail.
+However the process may have several side effect operations and the null
+parameter may be used only between two operations. \\
+This means that the first operation is made even tough we already know
+that we cannot reach the second operation, because the code will fail
+with a null pointer exception.
+If rollbacks are not correctly handled, then the application enters into
+an inconsistent state and things get much worse. \\
+\newline
+Beside this inconsistency, this principle is also very helpful during
+the development phase, because instead of hiding potential bugs, it
+immediately notifies the programmer that something looks wrong. \\
+One could argue that the robustness of the application is getting weaker,
+especially on the client side, where the application may crash if
+unexpected failures are not well handled.
+Extensive use of this principle must be used with caution and
+appropriated controls and failure handling must be added.
 
 \subsubsection{Immutability}
 Immutability
