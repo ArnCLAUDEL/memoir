@@ -247,7 +247,7 @@ must be clear and unambiguous. \\
 Null pointers are completely ambiguous because there's no guarantee that
 the returned null pointer is actually representing a real missing value.
 Maybe the programmer forgot to fill a particular field of an object
-or used the wrong key when querying an HashMap or even have not
+or used the wrong key when querying a HashMap or even have not
 implemented this case and is returning null by default.
 \\
 \newline
@@ -262,16 +262,17 @@ from the application's code.
 Second, the programmer now has explicitly said that the method may not
 return a result.
 Where before the programmer could forget to think of checking for null
-value, he is now aware that the returned value can be missing and is
-probably going to look why and eventually implement a special case.
+value, he is now aware that the returned value can be missing.
+He is probably going to look why in the documentation and eventually
+will implement a special case to handle it.
 In addition, if a null pointer is returned, then there's no doubt that
 it's a mistake. \\
 Unfortunately sometimes, we can't really represent an optional value
 with the Optional type.
 For example in databases, it's frequent to have null pointers because
-it occupies less disk space and it's faster.
-It's okay to use null in small private local context, to keep a simple
-code and eventually run faster.\\
+it occupies less disk space and it's faster. \\
+It's also okay to use null in small private local context, to keep a simpler
+code.\\
 \newline
 Another alternative is to use the Null Object Pattern.
 This pattern uses a real object or value to represent a special or
@@ -289,8 +290,7 @@ Now, when we want to see the current state of the task, we are
 manipulating real values instead of a set of values and null pointers. \\
 We also know that if the state is null, then it's because there was
 a problem during the initialization of the Task. \\
-\newline
-However sometimes, it's hard to define a value for every possible case.
+Sometimes, it's hard to define a value for every possible case.
 Dates are a nice example, it would be awkward to replace a missing date
 by default value. \\
 \newline
