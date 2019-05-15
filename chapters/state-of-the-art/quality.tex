@@ -80,12 +80,10 @@ Design Patterns
 \subsubsection{SOLID}
 SOLID
 
-\subsubsection{Clean Code}
-Clean Code
-
 \subsubsection{KISS}
 Keep It Simple Stupid is a \textit{simple} principle that encourages to
-always try the simplest approach to solve a problem.
+always try the simplest approach to solve a problem. \\
+\newline
 It's very easy to over engineer a solution to a problem, because we want
 to cover all the possible cases or we want to add some extra
 features that may be useful later.
@@ -110,6 +108,7 @@ correctness of the received parameters.
 \subsubsection{DRY}
 Don't Repeat Yourself is a principle against code duplication and in
 favour of reusable items in general. \\
+\newline
 Duplicated values and logic mean O(n) complexity when a change is needed
 instead of O(1), if it was written in a single place.
 Maintenance then becomes a nightmare and in the worst case, some lines of
@@ -132,6 +131,7 @@ reusing CI platform and cloud providers.
 \subsubsection{Behaviour Parametrization}
 Behaviour Parametrization is included in the DRY principle and is very
 common in Functional Programming. \\
+\newline
 In traditional code, if we want to filter elements of a list of String
 for example, we would write a for loop and write our condition inside.
 Every element that matches the condition are then added to a previously
@@ -151,8 +151,30 @@ Some cloud providers also provides ready-to-use web services,
 where you simply add your business code and it's automatically managed
 and deployed.
 
-\subsubsection{YAGNI}
-YAGNI
+\subsubsection{Clean Code}
+Clean Code is a subset of rules and principles that helps to make and
+keep a clean codebase and we are going to list the main ideas. \\
+\newline
+A Clean code is literally \textit{clean}, it should be
+pleasant to read and it's easy to understand what's going on.
+This is where DRY and KISS principles, that we mentioned earlier,
+are very important to have a cleaner code.
+Class, method and variable names should be meaningful and self
+describing, so there's no need of extra comment to explain the logic.
+The code accross the project always follows the same standards, has the
+same format and is well indented. \\
+\newline
+Nested blocks (for/if/else \ldots) shouldn't go to deep
+because the deeper, the harder it is to understand the logic.
+For example, error handling code (usually try/catch blocks) should be
+externalized and located in a dedicated method.
+This reduces the pollution and the noise around the main feature. \\
+There is an interesting metric called Cyclomatic Complexity that tries to
+measure the level of visual complexity of code.
+Nested statements, as well as switch statements, are one of the worst
+elements and add a lot of complexity.
+Usually, when there are several nested lines of code, it is better to
+extract them to a private method.
 
 \subsubsection{Magic Numbers}
 Magic Numbers
