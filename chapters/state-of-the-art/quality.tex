@@ -226,12 +226,14 @@ Immutability
 %https://martinfowler.com/bliki/CommandQuerySeparation.html
 %https://martinfowler.com/bliki/ObservableState.html
 Command and Query Separation tries to separate operations that have
-side effect and the ones that don't. \\
+side effects and the ones that don't. \\
 \newline
 A Command is a method that only changes the state of the system and
-return void.
+returns void.
 Not returning a value necessarily means that the method is doing
 something elsewhere and therefore have side effects.
+Further queries will be affected by this command call and their results
+may vary.
 This clarifies the intent of the method and its impact on the
 application's state. \\
 \newline
@@ -240,8 +242,10 @@ Observable State of the object.
 This means that a query call will never affect or change the result of
 the next queries on the same object, this is why we use the term of
 Observable State.
-Sometimes there are internal states that don't change the result, like
-lazy loading or constant value caches. \\
+Sometimes there are internal states that can be modified by queries but
+they won't change the result of future queries.
+One example is lazy loading, the first query call will have a side effect
+but won't actually impact the returned value. \\
 \newline
 Pure CQS implementation is not very common and sometimes hard to achieve.
 For example, we want to persist a JPA Entity that has auto generated ID.
@@ -251,6 +255,6 @@ There are a lot of situations where it's more handy to directly return a
 value after executing a command, this is why a full CQS application is
 not necessarily ideal. \\
 However, it's a nice principle to have in mind, because it helps to
-identifies what really changes the state and what is only retrieving
-information from it.
+identifies what really changes the application's state and what is only
+retrieving information from it.
 Having less side effects in the code code is usually a great choice.
