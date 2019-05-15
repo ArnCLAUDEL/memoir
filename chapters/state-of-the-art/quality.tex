@@ -265,9 +265,39 @@ Where before the programmer could forget to think of checking for null
 value, he is now aware that the returned value can be missing and is
 probably going to look why and eventually implement a special case.
 In addition, if a null pointer is returned, then there's no doubt that
-it's a mistake \\
+it's a mistake. \\
+Unfortunately sometimes, we can't really represent an optional value
+with the Optional type.
+For example in databases, it's frequent to have null pointers because
+it occupies less disk space and it's faster.
+It's okay to use null in small private local context, to keep a simple
+code and eventually run faster.\\
 \newline
-
+Another alternative is to use the Null Object Pattern.
+This pattern uses a real object or value to represent a special or
+missing value. \\
+For example, an object Task could have the states PENDING, STARTED
+and FINISHED .
+When the task is submitted to the executor, the state is PENDING,
+when the executor actually executes it, it turns to STARTED and when
+it's done, it's FINISHED. \\
+But when we create the Task, there is no current state, so we could use
+null to represent the missing state.
+Or we could introduce a new state, that indicates that there is currently
+no state, NONE. \\
+Now, when we want to see the current state of the task, we are
+manipulating real values instead of a set of values and null pointers. \\
+We also know that if the state is null, then it's because there was
+a problem during the initialization of the Task. \\
+\newline
+However sometimes, it's hard to define a value for every possible case.
+Dates are a nice example, it would be awkward to replace a missing date
+by default value. \\
+\newline
+These two techniques are very helpful and tends to improve both the
+readability and the design of the code.
+The code is self describing and now manipulates as much as possible
+real values instead of ambiguous null pointer.
 
 \subsubsection{Side Effect}
 Side Effect
