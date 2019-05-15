@@ -196,9 +196,10 @@ Value Objects
 %https://martinfowler.com/eaaCatalog/specialCase.html
 %https://medium.com/@hinchman_amanda/null-pointer-references-the
 %-billion-dollar-mistake-1e616534d485
-Tony Hoare, the null pointer creator, said the following.
+%https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained
+Sir C. A. R. Hoare, the null pointer creator, said the following.
 \begin{quotation}
-    Null is the billion dollar mistake
+    I call it my billion-dollar mistake.
 \end{quotation}
 %TODO add details
 
@@ -216,11 +217,40 @@ If some method parameters or field are null, then any method call on
 them will necessarily fail. \\
 At first glance, it doesn't matter if it fails now or later, it will
 always fail in the end.
-Problems come with side effects that we previously introduced.
 %TODO talk about side effects that occurs before the failure
 
 \subsubsection{Immutability}
 Immutability
 
 \subsubsection{CQS}
-CQS
+%https://martinfowler.com/bliki/CommandQuerySeparation.html
+%https://martinfowler.com/bliki/ObservableState.html
+Command and Query Separation tries to separate operations that have
+side effect and the ones that don't. \\
+\newline
+A Command is a method that only changes the state of the system and
+return void.
+Not returning a value necessarily means that the method is doing
+something elsewhere and therefore have side effects.
+This clarifies the intent of the method and its impact on the
+application's state. \\
+\newline
+A Query is a method that returns a value and don't modify the
+Observable State of the object.
+This means that a query call will never affect or change the result of
+the next queries on the same object, this is why we use the term of
+Observable State.
+Sometimes there are internal states that don't change the result, like
+lazy loading or constant value caches. \\
+\newline
+Pure CQS implementation is not very common and sometimes hard to achieve.
+For example, we want to persist a JPA Entity that has auto generated ID.
+When we call the persist method, we may need to return the persisted
+object to retrieve the generated ID.
+There are a lot of situations where it's more handy to directly return a
+value after executing a command, this is why a full CQS application is
+not necessarily ideal. \\
+However, it's a nice principle to have in mind, because it helps to
+identifies what really changes the state and what is only retrieving
+information from it.
+Having less side effects in the code code is usually a great choice.
