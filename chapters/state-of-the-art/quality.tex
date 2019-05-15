@@ -192,20 +192,6 @@ parameterization in a config file so it's easier to change.
 \subsubsection{Value Objects}
 Value Objects
 
-\subsubsection{Null Pointers}
-%https://martinfowler.com/eaaCatalog/specialCase.html
-%https://medium.com/@hinchman_amanda/null-pointer-references-the
-%-billion-dollar-mistake-1e616534d485
-%https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained
-Sir C. A. R. Hoare, the null pointer creator, said the following.
-\begin{quotation}
-    I call it my billion-dollar mistake.
-\end{quotation}
-%TODO add details
-
-\subsubsection{Side Effect}
-Side Effect
-
 \subsubsection{Fail Fast}
 Fail Fast principle prevents the application from continuing a process if
 it's likely to fail in the next steps. \\
@@ -213,8 +199,8 @@ it's likely to fail in the next steps. \\
 This principle is usually implemented using a defensive code, that checks
 the method parameters and ensure that every value, variable, service etc.
 are available and consistent before continuing the process.
-If some method parameters or fields are null for example, then any further
-method call will necessarily fail. \\
+If some method parameters or fields are null for example, then any
+further method call will necessarily fail. \\
 \newline
 At first glance, it doesn't matter if it fails now or later, in the end
 it will always fail no matter what.
@@ -229,11 +215,62 @@ an inconsistent state and things get much worse. \\
 Beside this inconsistency, this principle is also very helpful during
 the development phase, because instead of hiding potential bugs, it
 immediately notifies the programmer that something looks wrong. \\
-One could argue that the robustness of the application is getting weaker,
-especially on the client side, where the application may crash if
-unexpected failures are not well handled.
+One could argue that the robustness of the application is getting
+weaker, especially on the client side, where the application may crash
+if unexpected failures are not well handled.
 Extensive use of this principle must be used with caution and
 appropriated controls and failure handling must be added.
+
+\subsubsection{Null Pointers}
+%https://martinfowler.com/eaaCatalog/specialCase.html
+%https://medium.com/@hinchman_amanda/null-pointer-references-the
+%-billion-dollar-mistake-1e616534d485
+%https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained
+Sir C. A. R. Hoare, the null pointer creator, said the following.
+\begin{quotation}
+    I call it my billion-dollar mistake.
+\end{quotation}
+Null pointer is one of the most painful features in Object Oriented
+Programming.
+Missing value, business case not handled, unlikely state \ldots There are
+a lot situations where we don't really know what to do or return.
+The easy solution is therefore to return null and see what happens. \\
+We talked about the Fail Fast principle earlier, usually applications
+that use null values don't fail fast, otherwise they would either
+stop using null or stop failing fast. \\
+Obviously the first solution is better and we are going to present some
+alternatives to null and some situations where null is viable. \\
+\newline
+The distinction between, a missing value because of the
+programmer's mistake, and a real missing value because of business logic,
+must be clear and unambiguous. \\
+Null pointers are completely ambiguous because there's no guarantee that
+the returned null pointer is actually representing a real missing value.
+Maybe the programmer forgot to fill a particular field of an object
+or used the wrong key when querying an HashMap or even have not
+implemented this case and is returning null by default.
+\\
+\newline
+Optional is a common type across programming languages and is now widely
+used in standard APIs.
+An Optional is a very simple object, that either contains a value or
+is empty.
+It has methods to tell whether it's empty or not and a getter (and some
+utility methods). \\
+The idea of optional is first to hide and encapsulate the null value
+from the application's code.
+Second, the programmer now has explicitly said that the method may not
+return a result.
+Where before the programmer could forget to think of checking for null
+value, he is now aware that the returned value can be missing and is
+probably going to look why and eventually implement a special case.
+In addition, if a null pointer is returned, then there's no doubt that
+it's a mistake \\
+\newline
+
+
+\subsubsection{Side Effect}
+Side Effect
 
 \subsubsection{Immutability}
 Immutability
