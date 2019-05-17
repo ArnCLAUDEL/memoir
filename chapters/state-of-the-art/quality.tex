@@ -72,14 +72,11 @@ statement with a condition that is always false. \\
 Sonar is a great companion that integrates perfectly with IDEs and will
 necessarily teach something new to anyone using it.
 
-\subsection{Principles and Design}\label{subsec:principles}
-
-\subsubsection{Design Patterns}
+\subsection{Design Patterns}\label{subsec:design-patterns}
 %https://en.wikipedia.org/wiki/Design_pattern
 Design Patterns is a book written by Erich Gamma,
 Richard Helm, Ralph Johnson and John Vlissides, also known as the
-Gang of Four. \\
-
+Gang of Four.
 \begin{quotation}
     The elements of this language are entities called patterns.
     Each pattern describes a problem that occurs over and over again
@@ -125,10 +122,10 @@ It is accessible using a static getter but the Singleton pattern is
 completely transparent and doesn't change the behaviour of the Optional
 type at all.
 
-\subsubsection{SOLID}
+\subsection{SOLID}\label{subsec:solid}
 SOLID
 
-\subsubsection{KISS}
+\subsection{KISS}\label{subsec:kiss}
 Keep It Simple Stupid is a \textit{simple} principle that encourages to
 always try the simplest approach to solve a problem. \\
 \newline
@@ -153,7 +150,7 @@ local field.
 However a public method inherited from an interface should check for the
 correctness of the received parameters.
 
-\subsubsection{DRY}
+\subsection{DRY}\label{subsec:dry}
 Don't Repeat Yourself is a principle against code duplication and in
 favour of reusable items in general. \\
 \newline
@@ -176,7 +173,7 @@ the business code and can be immediately deployed.
 Companies also try to reduce the time to market by creating starter kit,
 reusing CI platform and cloud providers.
 
-\subsubsection{Behaviour Parametrization}
+\subsection{Behaviour Parametrization}\label{subsec:behaviour-parametrization}
 Behaviour Parametrization is included in the DRY principle and is very
 common in Functional Programming. \\
 \newline
@@ -199,7 +196,7 @@ Some cloud providers also provides ready-to-use web services,
 where you simply add your business code and it's automatically managed
 and deployed.
 
-\subsubsection{Clean Code}
+\subsection{Clean Code}\label{subsec:clean-code}
 Clean Code is a subset of rules and principles that helps to make and
 keep a clean codebase and we are going to list the main ideas. \\
 \newline
@@ -224,7 +221,7 @@ elements and add a lot of complexity.
 Usually, when there are several nested lines of code, it is better to
 extract them to a private method.
 
-\subsubsection{Magic Numbers}
+\subsection{Magic Numbers}\label{subsec:magic-numbers}
 Magic Numbers represent all the hardcoded values in the code that have
 a real meaning and logic. \\
 \newline
@@ -237,7 +234,7 @@ A good practice is first to extract these values to variables or
 constants and, if the value is very dynamic, externalize the
 parameterization in a config file so it's easier to change.
 
-\subsubsection{Side Effect}
+\subsection{Side Effect}\label{subsec:side-effect}
 A Side Effect occurs during an operation and modifies (possibly silently)
 the state of the system. \\
 Functional Programming style tends to avoid having side effects in order
@@ -273,7 +270,7 @@ The idea was simply to show that a side effect may change the result
 after multiple executions of an operation or can be completely
 transparent but still affect the entire system.
 
-\subsubsection{Immutability}
+\subsection{Immutability}\label{subsec:immutability}
 Immutability is closely related to Side Effects and consists in set-once
 values, that never change over time. \\
 It's, again, very frequent in Functional Programming style, because
@@ -312,7 +309,7 @@ you let the possibility to do it and it's likely to be wrongly used. \\
 Immutability is therefore a great tool to reduce side effects, improve
 performances, simplify concurrency and clarify intents.
 
-\subsubsection{Value Objects}
+\subsection{Value Objects}\label{subsec:value-objects}
 Value Objects are interchangeable objects that don't have an identity.
 They are part of the Domain Driven Design methodology, but we won't
 detail DDD in this memoir, so we only mention it. \\
@@ -351,7 +348,7 @@ value. \\
 It's a very Functional Style, with no side effect, that always returns
 a new copy instead of modifying the current object.
 
-\subsubsection{Fail Fast}
+\subsection{Fail Fast}\label{subsec:fail-fast}
 Fail Fast principle prevents the application from continuing a process if
 it's likely to fail in the next steps. \\
 \newline
@@ -380,7 +377,7 @@ if unexpected failures are not well handled.
 Extensive use of this principle must be used with caution and
 appropriated controls and failure handling must be added.
 
-\subsubsection{Null Pointers}
+\subsection{Null Pointers}\label{subsec:null-pointers}
 %https://martinfowler.com/eaaCatalog/specialCase.html
 %https://medium.com/@hinchman_amanda/null-pointer-references-the
 %-billion-dollar-mistake-1e616534d485
@@ -458,7 +455,7 @@ readability and the design of the code.
 The code is self describing and now manipulates as much as possible
 real values instead of ambiguous null pointer.
 
-\subsubsection{CQS}
+\subsection{CQS}\label{subsec:cqs}
 %https://martinfowler.com/bliki/CommandQuerySeparation.html
 %https://martinfowler.com/bliki/ObservableState.html
 Command and Query Separation tries to separate operations that have
@@ -484,9 +481,9 @@ One example is lazy loading, the first query call will have a side effect
 but won't actually impact the returned value. \\
 \newline
 Pure CQS implementation is not very common and sometimes hard to achieve.
-For example, we want to persist a JPA Entity that has auto generated ID.
+For example, we want to persist a JPA Entity that has auto generated ID\@.
 When we call the persist method, we may need to return the persisted
-object to retrieve the generated ID.
+object to retrieve the generated ID\@.
 There are a lot of situations where it's more handy to directly return a
 value after executing a command, this is why a full CQS application is
 not necessarily ideal. \\
