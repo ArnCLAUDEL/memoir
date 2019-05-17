@@ -226,7 +226,43 @@ after multiple executions of an operation or can be completely
 transparent but still affect the entire system.
 
 \subsubsection{Immutability}
-Immutability
+Immutability is closely related to Side Effects and consists in set-once
+values, that never change over time. \\
+It's, again, very frequent in Functional Programming style, because
+it's very nice to reduce side effects.
+An immutable value is set once and therefore is read-only after its
+initialization. \\
+\newline
+One advantage of immutable value is that you can expose and share
+it without having to worry about the potential side effects.
+This is very handy when you want to pass an object to a third party
+library, a code you don't know.
+If the list is mutable, then the library could silently remove some
+elements while returning the intended result.
+If the passed list is immutable, then you don't take risk of having your
+list modified. \\
+\newline
+Concurrency on immutable values is therefore not a problem anymore.
+There is no need of costly locks and synchronization mechanisms, because
+we now guarantee that the value won't change, so everyone can access it
+at the same time. \\
+\newline
+Performances can also be improved when using immutable values.
+If a variable is set once and read only, there is no need to check if
+its value has changed.
+This means that when there is a reference to the variable, instead of
+having a look up to get the current value in the memory, the initial value
+can directly be used.
+This a common optimization technique used by compilers and runtime
+environments. \\
+\newline
+Immutability also clarifies the intent of the code.
+When a field is immutable, then it's because it shouldn't be modified.
+However, if there is a setter, even if the field should not change,
+you let the possibility to do it and it's likely to be wrongly used. \\
+\newline
+Immutability is therefore a great tool to reduce side effects, improve
+performances, simplify concurrency and clarify intents.
 
 \subsubsection{Value Objects}
 Value Objects
