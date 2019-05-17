@@ -189,6 +189,45 @@ A good practice is first to extract these values to variables or
 constants and, if the value is very dynamic, externalize the
 parameterization in a config file so it's easier to change.
 
+\subsubsection{Side Effect}
+A Side Effect occurs during an operation and modifies (possibly silently)
+the state of the system. \\
+Functional Programming style tends to avoid having side effects in order
+to make a Pure functional program.
+A pure function can be compared to a mathematics function, the same
+input always returns the same output.
+There isn't a function that could affect another one or return a
+different value when you call it 5 times in a row. \\
+\newline
+For example, the method \textit{close} of an OutputStream has side
+effects, because it closes the underlying resource and any further
+write will fail.
+This is the intended behaviour, however this affects the entire system
+because if there are other components that uses this OutputStream, this
+operation will prevent them from writing again. \\
+Side effects therefore can be dangerous when they have an impact on
+several components in the system, that are probably not even aware of
+that and concurrency becomes harder to manage. \\
+\newline
+Side effects are also not always visible and may not directly change the
+result of an operation.
+We mentioned the method \textit{close} of an OutputStream earlier, but
+what happens if we never call this method.
+We would simply leave an unclosed resource after the process, but the
+result is correct and it's completely transparent to the caller.
+However, if the process is repeated a thousand of times, there will be
+a thousand of unclosed streams, which leads to memory leaks and the
+system would potentially run out of memory. \\
+\newline
+There are a lot of examples that shows the consequences of having side
+to much side effects, we'll not cover them all.
+The idea was simply to show that a side effect may change the result
+after multiple executions of an operation or can be completely
+transparent but still affect the entire system.
+
+\subsubsection{Immutability}
+Immutability
+
 \subsubsection{Value Objects}
 Value Objects
 
@@ -271,8 +310,8 @@ Unfortunately sometimes, we can't really represent an optional value
 with the Optional type.
 For example in databases, it's frequent to have null pointers because
 it occupies less disk space and it's faster. \\
-It's also okay to use null in small private local context, to keep a simpler
-code.\\
+It's also okay to use null in small private local context, to keep a
+simpler code.\\
 \newline
 Another alternative is to use the Null Object Pattern.
 This pattern uses a real object or value to represent a special or
@@ -298,12 +337,6 @@ These two techniques are very helpful and tends to improve both the
 readability and the design of the code.
 The code is self describing and now manipulates as much as possible
 real values instead of ambiguous null pointer.
-
-\subsubsection{Side Effect}
-Side Effect
-
-\subsubsection{Immutability}
-Immutability
 
 \subsubsection{CQS}
 %https://martinfowler.com/bliki/CommandQuerySeparation.html
