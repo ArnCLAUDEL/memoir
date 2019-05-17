@@ -219,7 +219,7 @@ However, if the process is repeated a thousand of times, there will be
 a thousand of unclosed streams, which leads to memory leaks and the
 system would potentially run out of memory. \\
 \newline
-There are a lot of examples that shows the consequences of having side
+There are a lot of examples that shows the consequences of having
 to much side effects, we'll not cover them all.
 The idea was simply to show that a side effect may change the result
 after multiple executions of an operation or can be completely
@@ -229,14 +229,14 @@ transparent but still affect the entire system.
 Immutability is closely related to Side Effects and consists in set-once
 values, that never change over time. \\
 It's, again, very frequent in Functional Programming style, because
-it's very nice to reduce side effects.
+it's very helpful when we want to reduce side effects.
 An immutable value is set once and therefore is read-only after its
 initialization. \\
 \newline
 One advantage of immutable value is that you can expose and share
 it without having to worry about the potential side effects.
 This is very handy when you want to pass an object to a third party
-library, a code you don't know.
+library, that is a code you don't have control of.
 If the list is mutable, then the library could silently remove some
 elements while returning the intended result.
 If the passed list is immutable, then you don't take risk of having your
