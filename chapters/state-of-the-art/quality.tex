@@ -281,11 +281,11 @@ equal and have the same hashcode. \\
 Value Objects should be immutable, easy and cheap to create, this is why
 Factory and Singleton design patterns work great with them.
 Factory allows us to ease and control the instantiation of our objects
-and Singleton could be used in case of performances issues. \\
+and Singleton could be used in case of performances issues.
 As Value Objects are frequently instantiated, sometimes you could have
 a lot of small objects although they're all the same and interchangeable.
 A Singleton cache could therefore be inserted inside the Factory and
-reuse the same immutable Value Object. \\
+reuse the same Value Object. \\
 \newline
 There are a lot of frameworks and libraries that provide easy
 implementations of Value Object, using annotations or abstract classes.
@@ -297,8 +297,9 @@ We said that a Value Object should be immutable, this is still the case,
 however we would like to be able to easily modify it, and avoid having
 to instantiate another new object when we only want to modify one field.
 Withers is like Getters and Setters, it's a convention of methods that
-behave like a Setters, but instead of modifying the current object,
-they return a new object with the new value. \\
+behave like Setters, but instead of modifying the current object,
+they return a new object with the same attributes and the modified
+value. \\
 It's a very Functional Style, with no side effect, that always returns
 a new copy instead of modifying the current object.
 
