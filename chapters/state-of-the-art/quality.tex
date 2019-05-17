@@ -95,8 +95,9 @@ There is a nice diagram that present them all.
 \\
 \newline
 We're not going to detail each pattern, we'll only take a look at some
-interesting ones, that we'll use or mention later.\\
-\newline
+interesting ones, that we'll use or mention later.
+
+\subsubsection{Singleton}
 Singleton pattern is a very simple but useful one.
 The idea with singleton is to only have one instance of an object in the
 entire application.
@@ -121,6 +122,54 @@ that represents an empty Optional.
 It is accessible using a static getter but the Singleton pattern is
 completely transparent and doesn't change the behaviour of the Optional
 type at all.
+
+\subsubsection{Factory}
+The Factory pattern abstracts the instantiation of an object by wrapping
+it into a method. \\
+The idea is to avoid using directly the constructor and the new keyword.
+This kind of instantiation is problematic because you must specify
+the class to instantiate, which means that if you need to change it
+later, you have to modify every instantiation.
+A Factory can help in hiding the complexity and other implementation
+details to a code that only need an interface's implementation. \\
+There are two main types of Factory : Static and Abstract. \\
+\newline
+Static Factory are static methods that do the instantiation, with some
+parameters if needed.
+One advantage is that you can name your factory method and make your
+instantiation more explicit.
+It's actually very useful when there are several constructors available,
+the difference between each may not be obvious and a plain text method
+name is usually clearer than the javadoc. \\
+\newline
+These static factory methods are usually located in the class itself or
+in a companion / utility class of the interface.
+A companion / utility class of an interface has the same name but ends
+with a S\@.
+There are very common in the standard API like Collections, Arrays or
+Executors.
+They provide plenty of utility method and constructors.
+Factory method names can be straightforward like \textit{newArrayList}
+or can be very explicit like \textit{newSingleThreadExecutor} or even
+can be very abstract and hide implementation details like
+\textit{asList}. \\
+\newline
+The problem with this kind of factory, is that you cannot choose the
+implementation you want.
+You may want to select the implementation to use, according to a config
+property or the current state of your application. \\
+This is where an Abstract Factory can be useful, because you can easily
+extend and customize it.
+If you want to change the implementation provided by your factory, you
+simply have to instantiate the new desired factory.
+This allows a very flexible factory, that can parameterized and modified
+even at runtime.\\
+\newline
+There are other key Design Patterns, like Visitor, State, Decorator,
+Observer etc.
+There are also patterns for architecture, enterprise, model, UI \ldots
+Almost every problem has its associated pattern and usually people don't
+even notice that they are using a pattern when they implement a solution.
 
 \subsection{SOLID}\label{subsec:solid}
 SOLID
@@ -173,7 +222,8 @@ the business code and can be immediately deployed.
 Companies also try to reduce the time to market by creating starter kit,
 reusing CI platform and cloud providers.
 
-\subsection{Behaviour Parametrization}\label{subsec:behaviour-parametrization}
+\subsection{Behaviour Parametrization}
+\label{subsec:behaviour-parametrization}
 Behaviour Parametrization is included in the DRY principle and is very
 common in Functional Programming. \\
 \newline
@@ -481,7 +531,8 @@ One example is lazy loading, the first query call will have a side effect
 but won't actually impact the returned value. \\
 \newline
 Pure CQS implementation is not very common and sometimes hard to achieve.
-For example, we want to persist a JPA Entity that has auto generated ID\@.
+For example, we want to persist a JPA Entity that has auto generated
+ID\@.
 When we call the persist method, we may need to return the persisted
 object to retrieve the generated ID\@.
 There are a lot of situations where it's more handy to directly return a
