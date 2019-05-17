@@ -90,8 +90,9 @@ Gang of Four. \\
 \end{quotation}
 
 The book introduces over 23 Design Patterns that help in solving common
-problem that programmers encounter.
+problems that programmers use to encounter.
 There is a nice diagram that present them all.
+%TODO add diagram
 %https://infinitescript.com/wordpress/wp-content/uploads/
 %2014/10/Design-Pattern-Relationships.jpg
 \\
@@ -102,7 +103,27 @@ interesting ones, that we'll use or mention later.\\
 Singleton pattern is a very simple but useful one.
 The idea with singleton is to only have one instance of an object in the
 entire application.
-
+There are usually two situations where you need Singleton. \\
+\newline
+The first one is when the object must be unique, either because you want
+to centralize all operations in one place or because it simply cannot
+work with multiple instances.
+Objects like Runtime or SecurityProvider are singleton and you retrieve
+them using a static getter.
+These objects are created when the application starts and are usually
+complex objects that shouldn't be locally managed. \\
+\newline
+Another situation where you want a Singleton is when you need highly
+reusable objects.
+Stateless or immutable objects are not bound to a specific context and
+therefore can be used everywhere in the application.
+Singleton saves the cost of duplicated instantiation and also reduces the
+memory usage.
+For example, the Optional Type (detailed later) has a Singleton instance
+that represents an empty Optional.
+It is accessible using a static getter but the Singleton pattern is
+completely transparent and doesn't change the behaviour of the Optional
+type at all.
 
 \subsubsection{SOLID}
 SOLID
