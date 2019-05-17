@@ -172,7 +172,88 @@ Almost every problem has its associated pattern and usually people don't
 even notice that they are using a pattern when they implement a solution.
 
 \subsection{SOLID}\label{subsec:solid}
-SOLID
+%http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
+%https://drive.google.com/file/d/0ByOwmqah_nuGNHEtcU5OekdDMkk
+%http://docs.google.com/a/cleancoder.com/viewer?a=v&pid=explorer&
+%chrome=true&srcid=0BwhCYaYDn8EgN2M5MTkwM2EtNWFkZC00ZTI3LWFjZTUtN
+%TFhZGZiYmUzODc1&hl=en
+%http://docs.google.com/a/cleancoder.com/viewer?a=v&pid=explorer&
+%chrome=true&srcid=0BwhCYaYDn8EgNzAzZjA5ZmItNjU3NS00MzQ5LTkwYjMtMD
+%JhNDU5ZTM0MTlh&hl=en
+%http://docs.google.com/a/cleancoder.com/viewer?a=v&pid=explorer&
+%chrome=true&srcid=0BwhCYaYDn8EgOTViYjJhYzMtMzYxMC00MzFjLWJjMzYtOG
+%JiMDc5N2JkYmJi&hl=en
+%http://docs.google.com/a/cleancoder.com/viewer?a=v&pid=explorer&
+%chrome=true&srcid=0BwhCYaYDn8EgMjdlMWIzNGUtZTQ0NC00ZjQ5LTkwYzQtZj
+%RhMDRlNTQ3ZGMz&hl=en
+SOLID principles were introduced by Robert C. Martin.
+Each letter represent a principle that are at the heart of Object
+Oriented Programming and we are going to present each of them.
+
+\subsubsection{The Single Responsibility Principle}
+\begin{quotation}
+    A class should have one, and only one, reason to change.
+\end{quotation}
+This principle aims to reduce the number of functionality of a class to
+one, in order to make it simpler.
+It'll be simpler to write, test and maintain by reducing the impacted
+area when a change is required.
+In addition, the intent is clearer and the class will be more
+reusable than if it had several tied features.
+
+\subsubsection{The Open Closed Principle}
+\begin{quotation}
+    You should be able to extend a classes behavior, without modifying
+    it.
+\end{quotation}
+This principle is self explanatory, it can easily be implemented using
+abstract class or Decorator pattern.
+The idea is to be able to reuse existing code while adding new features
+to it.
+The initial functionality would stay the same but we may want to handle a
+new case or add some extra operations.
+
+\subsubsection{The Liskov Substitution Principle}
+\begin{quotation}
+    Derived classes must be substitutable for their base classes.
+\end{quotation}
+Implementations of an interface will obviously differ and won't have
+exactly the same behaviour.
+However these differences should stay at the implementation details level
+and shouldn't require specific code to be usable.
+The caller should not handle implementation specific cases when using
+an interface type.
+
+\subsubsection{The Interface Segregation Principle}
+\begin{quotation}
+    Make fine grained interfaces that are client specific.
+\end{quotation}
+This principle is not very self explanatory and is about decoupling
+interfaces in an abstract class, that are likely to be ignored by most
+of the sub classes.
+The problem of depending on to much interfaces, is that any change
+to an interface will impact every sub class, even if they don't use it.
+The solution is to decouple every interface and use composition when it's
+actually needed, at the correct level of abstraction.
+
+\subsubsection{The Dependency Inversion Principle}
+\begin{quotation}
+    Depend on abstractions, not on concretions.
+\end{quotation}
+This last principle says that high level modules should never depend on
+low level modules.
+Implementations details must be hidden and completely independent from
+the high level code.
+The solution is therefore to only depend on abstractions, that is
+interfaces that have the same (or higher) level in the hierarchy. \\
+\newline
+
+These principles help to write better Object Oriented programs and
+leverage the great features of this paradigm.
+The main ideas are to decouple at most modules and reduce their
+dependencies so each part of the application can be modified without
+affecting other modules.
+Change and Improvement should be cheap and easy to make.
 
 \subsection{KISS}\label{subsec:kiss}
 Keep It Simple Stupid is a \textit{simple} principle that encourages to
