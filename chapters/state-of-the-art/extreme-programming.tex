@@ -50,30 +50,30 @@ to pass the one failing unit test.
 These rules are very restrictive and they don't look very natural
 compared to what we use to do.
 There is a method that allow us to easily follow these rules, the
-Red Green Refactor cycle. \\
-\newline
+Red Green Refactor cycle.
+\subsubsection{The Red Light}
 First you need to write a failing test and see the red light.
 But your test cannot even run, it doesn't compile because there is
 actually no production code.
 So you create your class with empty methods in order to be able to run
 the test. \\
-And now you have a red light. \\
-\newline
+And now you have a red light.
+\subsubsection{The Green Light}
 This red light must disappear as soon as possible, so you have to write
 the minimum amount of code required to turn the light green.
 The minimum means that you are rushing to the green light, duplicated
 code, hardcoded values or worst if you want, the code simply need to
 work. \\
-Now you've reached the green light. \\
-\newline
+Now you've reached the green light.
+\subsubsection{The Refactor Phase}
 Here you have a terrible (but working) code.
 All you have to do now is refactoring, eliminating duplication,
 extracting methods, variables, constants etc.
 You don't have the fear anymore of breaking the feature while
 refactoring, your fresh test will cover you for this. \\
 Now you have a clean and working code, you can write a new failing test
-and repeat the process again. \\
-\newline
+and repeat the process again.
+\subsubsection{Step By Step}
 This approach is very incremental, we only go with very small steps :
 baby steps.
 Breaking a complex problem in smaller simple problems helps to tackle it
@@ -85,8 +85,8 @@ continues until he realizes that there's a lot of duplicated code. \\
 After that, he can make an effective refactor and abstracts his code to
 make it more generic and handle the rest of the 'simple' cases.
 He can now write a test for a more complex case and do the same thing
-again. \\
-\newline
+again.
+\subsubsection{Conclusion}
 TDD allows programmers to be confident with their tests because they
 describe how the production code should behave.
 The production code was written only to make these tests pass, so if
@@ -120,7 +120,7 @@ etc. \\
 The communication while pairing is very important and must be almost
 continuous.
 Programmers must help each others, tell what they are doing, share their
-mind and knowledge in order to provide the write a better code. \\
+mind and knowledge in order to write the better code. \\
 When a programmer faces a problem alone, he could get stuck for hours,
 even when the solution is simple.
 He cannot find it because he keeps the same (wrong) point of view.
@@ -129,7 +129,7 @@ the solution and if not, maybe the other person already tackled this
 issue few days go and will explain the trick. \\
 Pairing can reduce the frustration of getting stuck on small technical
 problems because the knowledge and the experience of both programmers
-are shared and they can focus on the more complex problems. \\
+are shared and they can focus on the complex problems. \\
 \newline
 Beside increasing the quality of code and reducing the new bugs, pairing
 is also very interesting in the management of your team.
@@ -145,7 +145,7 @@ If the author is not in the team anymore, then nobody knows how the
 feature is implemented and even less how to fix it. \\
 As pairing shares the knowledge across the team, you have at least two
 persons that worked on the feature.
-The pair could also have changed while the feature is in progress, so you
+The pair could also have changed while the feature was in progress, so you
 have even more programmers that worked on it. \\
 \newline
 We covered the main ideas of Pair Programming and we showed what great
@@ -184,13 +184,12 @@ after several days or weeks of work.
     repository every few hours, when ever possible.
     In any case never hold onto changes for more than a day.
 \end{quotation}
-
 Local work doesn't take into account new changes and your code could rely
 on obsolete features.
 You're also likely to recreate a utility feature that already exists and
 could have been reused.
 Generally, the longer your code stays on your local machine, the harder
-to integrate into with the rest of the application. \\
+to integrate with the rest of the application. \\
 \newline
 This is were the CI platform helps team by building and testing
 the application as often as possible.

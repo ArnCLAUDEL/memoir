@@ -39,9 +39,7 @@ There are three types of issues :
     At worst, they'll be so confused by the state of the code that
     they'll introduce additional errors as they make changes.
 \end{description}
-
 There are 5 levels of severity :
-
 \begin{description}
     \item[BLOCKER :]
 Bug with a high probability to impact the behavior of the application
@@ -85,7 +83,6 @@ Gang of Four.
     times over, without ever doing it the same way twice.
     \textemdash Christopher Alexander
 \end{quotation}
-
 The book introduces over 23 Design Patterns that help in solving common
 problems that programmers use to encounter.
 There is a nice diagram that present them all.
@@ -146,9 +143,9 @@ These static factory methods are usually located in the class itself or
 in a companion / utility class of the interface.
 A companion / utility class of an interface has the same name but ends
 with a S\@.
-There are very common in the standard API like Collections, Arrays or
+They are very common in the standard API like Collections, Arrays or
 Executors.
-They provide plenty of utility method and constructors.
+They provide plenty of utility methods and constructors.
 Factory method names can be straightforward like \textit{newArrayList}
 or can be very explicit like \textit{newSingleThreadExecutor} or even
 can be very abstract and hide implementation details like
@@ -162,8 +159,8 @@ This is where an Abstract Factory can be useful, because you can easily
 extend and customize it.
 If you want to change the implementation provided by your factory, you
 simply have to instantiate the new desired factory.
-This allows a very flexible factory, that can parameterized and modified
-even at runtime.\\
+This allows a very flexible factory, that can be parameterized and
+modified even at runtime.\\
 \newline
 There are other key Design Patterns, like Visitor, State, Decorator,
 Observer etc.
@@ -292,15 +289,15 @@ application. \\
 \newline
 This principle is therefore vital for business logic but also relevant
 for technical and utility features.
-There're plenty of libraries that implements common algorithms, file
+There're plenty of libraries that implement common algorithms, file
 manipulation, serialization etc.
 So it's usually a bad idea to try to reimplement locally something that
 have been better done and is used by the whole community. \\
 \newline
 DRY is also a global principle and can be applied at a much higher level.
-More and more production-ready frameworks or services only requires
+More and more production-ready frameworks or services only require
 the business code and can be immediately deployed.
-Companies also try to reduce the time to market by creating starter kit,
+Companies also try to reduce the time to market by creating starter kits,
 reusing CI platform and cloud providers.
 
 \subsection{Behaviour Parametrization}
@@ -323,7 +320,7 @@ the behaviour (in our example, the filter condition) and reusing the
 common code (the for loop and list creation). \\
 There are well known Collection's methods such as map, filter or reduce
 that takes behaviour as parameter.
-Some cloud providers also provides ready-to-use web services,
+Some cloud providers also have ready-to-use web services,
 where you simply add your business code and it's automatically managed
 and deployed.
 
@@ -536,8 +533,7 @@ the returned null pointer is actually representing a real missing value.
 Maybe the programmer forgot to fill a particular field of an object
 or used the wrong key when querying a HashMap or even have not
 implemented this case and is returning null by default.
-\\
-\newline
+\subsubsection{Optional}
 Optional is a common type across programming languages and is now widely
 used in standard APIs.
 An Optional is a very simple object, that either contains a value or
@@ -559,8 +555,8 @@ with the Optional type.
 For example in databases, it's frequent to have null pointers because
 it occupies less disk space and it's faster. \\
 It's also okay to use null in small private local context, to keep a
-simpler code.\\
-\newline
+simpler code.
+\subsubsection{Null Object Pattern}
 Another alternative is to use the Null Object Pattern.
 This pattern uses a real object or value to represent a special or
 missing value. \\
