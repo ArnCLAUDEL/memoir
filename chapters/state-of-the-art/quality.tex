@@ -251,8 +251,8 @@ Performances can also be improved when using immutable values.
 If a variable is set once and read only, there is no need to check if
 its value has changed.
 This means that when there is a reference to the variable, instead of
-having a look up to get the current value in the memory, the initial value
-can directly be used.
+having a look up to get the current value in the memory, the initial
+value can directly be used.
 This a common optimization technique used by compilers and runtime
 environments. \\
 \newline
@@ -265,7 +265,42 @@ Immutability is therefore a great tool to reduce side effects, improve
 performances, simplify concurrency and clarify intents.
 
 \subsubsection{Value Objects}
-Value Objects
+Value Objects are interchangeable objects that don't have an identity.
+They are part of the Domain Driven Design methodology, but we won't
+detail DDD in this memoir, so we only mention it. \\
+\newline
+A value object only holds a value and doesn't have any business logic
+or do complex operations.
+Frequent usage are for currency, date, coordinates, etc.
+Only their field values matter so \textit{equals} and \textit{Hashcode}
+implementations should therefore only use the field values and return
+a coherent result.
+That is, if two objects are instantiated with the same values, they're
+equal and have the same hashcode. \\
+\newline
+Value Objects should be immutable, easy and cheap to create, this is why
+Factory and Singleton design patterns work great with them.
+Factory allows us to ease and control the instantiation of our objects
+and Singleton could be used in case of performances issues. \\
+As Value Objects are frequently instantiated, sometimes you could have
+a lot of small objects although they're all the same and interchangeable.
+A Singleton cache could therefore be inserted inside the Factory and
+reuse the same immutable Value Object. \\
+\newline
+There are a lot of frameworks and libraries that provide easy
+implementations of Value Object, using annotations or abstract classes.
+They reduce the boilerplate code and let us have a very concise code,
+with only the field declaration. \\
+Usually they provide an interesting technique, named Withers, used to
+modify a Value Object.
+We said that a Value Object should be immutable, this is still the case,
+however we would like to be able to easily modify it, and avoid having
+to instantiate another new object when we only want to modify one field.
+Withers is like Getters and Setters, it's a convention of methods that
+behave like a Setters, but instead of modifying the current object,
+they return a new object with the new value. \\
+It's a very Functional Style, with no side effect, that always returns
+a new copy instead of modifying the current object.
 
 \subsubsection{Fail Fast}
 Fail Fast principle prevents the application from continuing a process if
