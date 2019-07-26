@@ -1,28 +1,27 @@
 \section{Relevant Context}\label{sec:relevant-context}
-This section describes which contexts are relevant to this problematic
-and where the proposed solution is suitable. \\
-This problematic is common on non-critical IT projects using
-programming languages such as Java, Javascript, Python etc.
+This section describes the relevant project contexts for this problematic
+and its solution. \\ \\
+The \textit{domain} of the project should be a non-critical one.
 By non-critical, we reference any project where there is no human life,
 financial market, aerospace system and any other "critical domain" at
-the core of the application. \\
-There are often a Web UI and an exposed API for the end users.
-Each of these interfaces have their dedicated tools for development and
-testing.
-The management of all the different tools can be quite tricky and
-directly impacts the cost of maintenance. \\
-These projects can have multiples teams that work on, such as business,
-dev or testing.
-Some teams usually don't have technical skills, like business or even the
-testing team.
-The communication between them is often hard and sometimes there is
-almost no communication. \\
-The methodology used, either Agile or Waterfall, does not matter.
-Usually, an Agile project is more likely to follow good practices in
-Quality and Testing but this is not necessarily the case.
-The proposed solution is not Agile-oriented and will work on Waterfall
-projects. \\
-Finally, as Quality has a cost, low-quality projects usually have smaller
-budget.
-Therefore the proposed solution only use community or free licences tools
-and try to reuse at most as possible the same elements, tools, data etc.
+the core of the application.\\ \\
+The \textit{methodology} used, either Agile or Waterfall, doesn't
+matter and the solution will try to be as generic as possible.
+However some sections may be specific to a methodology when an enhancement is
+only relevant to this one. \\ \\
+Regarding the \textit{architecture} of project, we'll handle a project with
+Web UI and an exposed API\@.
+Having multiples endpoints may requires multiples tools to specify, develop,
+test each of them and they must be managed in order to easily maintain them.
+\\ \\
+The \textit{team composition} of our context will be made of 3 group of people:
+clients, business analyst and developers.
+Business analysts define the requirements and functional tests with the client
+and then gives the specifications to the dev team.
+Clients and business analysts aren't expected to have any particular technical
+skills and developers aren't expected to have a deep understanding of the
+business domain. \\ \\
+The \textit{programming language} used is not important and we'll try to stay
+agnostic but code samples will be written in Java.
+Most of the tools and technologies are compatible with the common programming
+languages, such as Java, Python, Javascript etc.
