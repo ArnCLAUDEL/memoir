@@ -2,7 +2,7 @@
 %http://softwaretestingfundamentals.com/software-quality/
 There are a lot of possible definitions for Quality in software projects, for
 this problematic, we've chosen the one from the \textit{International Software
-Testing Qualifications Board} :
+Testing Qualiflications Board} :
 \begin{quote}
 The degree to which a component, system or process meets specified
 requirements and/or user/customer needs and expectations.
@@ -23,70 +23,35 @@ These two terms refers to what the stakeholders express to the integration
 team and it is (supposed to be) well defined.
 However, an expectation is usually more unclear and harder to state because
 it tends to be more subjective and is often implicit.
-For example, a stakeholder might expect its application to run smoothly, no
-matter how many users it has, or that sensitive data is well secured and
-compliant with the current legislation.
-He won't explicitly require that its application is reliable, fast, secure
-and easy to adapt, because he could think that it's just the standard way to go.
-\\
-Quality details may have different shape and be at different level of the
-project such as people interaction, process, tools and even production code. \\
+They may have different shape and be at different level of the project such as
+people interaction, process, tools or code. \\
 \newline
-Projects that don't pay enough attention to the details, will see their
-technical debt growing bigger and bigger.
-The consequence of high technical debt is generally a dramatic
-cost increasing of every move in the project. \\
-Let's show a quick example, we'll take a project that is meeting all the
-requirements of the stakeholder and show some details (that don't prevent
-the project features from working) that can slow down the project lifecycle
-and occurs extra cost. \\
-\newline
-We have 1--2 business persons and 2--3 developers, the communication between
-the two teams is weak and the needs/requirements are specified around
-coffees, mails and sometimes on slides but nothing formal.
-The developers interpret the feature and quickly implement it with an extensive
-use of copy paste.
-It's integrated and manually tested, also very quickly, and then the cycle
-is repeated until all the features are implemented. \\
-The business is then able to test the whole system and a lot of round trips
-are made to correct the bugs and misunderstanding of the specs.
-This part takes a lot longer than the development part, because developers
-now need to dig again in the code and understand what they've written in
-order to fix the bug.
-They obviously forgot what they did in the first place, how they tested it
-and they end up re creating the whole feature again.
-In addition, the fix is likely to silently break other features, that were
-previously tested and validated.
-We can choose to run all the tests again for each round trip, but at a very
-expensive cost or we can choose to accept the risk of introducing a bug into
-production.
-For now, we'll suppose that there's no new bug.
-After this testing phase, all requirements are validated, the application is
-delivered and all these steps will be repeated again for the next incoming
-version. \\
-\newline
-At this point, we have a working software, but how about the quality ? \\
-If we refer to our definition, a high quality software should meet the needs,
-requirements and expectations of the stakeholder.
-Needs and requirements are fulfilled, but what about expectations ? \\
-Why is there so many bug or divergence with the specification ? \\
-Why does it take so long to modify a small behaviour present in almost every
-features ? \\
-Why shall we run already passed tests again when another feature is modified
-? \\
-Why is it so hard to fix a bug whereas the feature was written very quickly ? \\
-Where are the proof of each tests ? \\
-Which test have been run ?
-And when ?
-On which version ? \\
+Let's list some examples. \\
+One might expect a feature to be easily added to the existing application,
+without breaking any existing features while integrating perfectly with all the
+common features already implemented.
+These features should be easy to update when needed and, again, shouldn't
+affect any other components in the project.
+The requirements should be covered by strong, replayable and trustful tests,
+that should not break on every modification and that allow us to quickly
+detect regression and bugs. \\
+There're also examples with unexpected error handling, performances,
+robustness etc.
+We can find a lot of examples but these simple ones are enough for our
+problematic. \\
 \newline
 All these kind of expectations, that one could expect for any project, are
 not mandatory to make a working software.
 Therefore, they can be classified as quality details and omitted on certain
 projects, because they don't directly add business value to the software.
-The problem is that every ignored details will slowly and constantly make
-things harder and more costly overall. \\
+The problem is that every ignored detail will slowly but constantly degrades
+the project's health.
+It might not be noticeable in the short term, however the consequences will
+show up after few weeks or months and will overall slow down every move in
+the project. \\
 \newline
 This memoir will present the state of the art in term of tool
-and process that help improving the quality of a project.
-We'll highlight the residual problems and propose a solution to address them.
+and process that help improving the quality of a project and address quality
+detail issues. \\
+We'll highlight the residual problems and also point out some new ones that
+we'll cover in our solution.
