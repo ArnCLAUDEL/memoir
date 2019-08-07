@@ -1,3 +1,4 @@
+%! Suppress = MissingImport
 \section{Waterfall Methodology}\label{sec:waterfall-methodology}
 %https://en.wikipedia.org/wiki/Waterfall_model#History
 The waterfall methodology was first introduced in the 1950's by Mr.
@@ -7,8 +8,8 @@ a lot of criticism few decades after.
 
 This section will first present the key concepts of this methodology followed
 by the detailed workflow.
-After that, we'll point out the weaknesses of the model and present a
-improved version of the model: the V-model.
+After that, we'll point out its weaknesses and present a improved version:
+the V-model.
 Finally, we'll state the residual problems and limits of the improved model.
 
 \subsection{Key concepts}\label{subsec:key-concepts}
@@ -22,14 +23,12 @@ Any software will require some specific design regarding its architecture, the
 technologies it will use, its production environment and will also need time
 to verify that the software actually works.
 
-
 \begin{figure}
-    \includegraphics{waterfall/figure_1}
+    \includegraphics{../../images/waterfall/figure_1}
     \centering
 \end{figure}
 
-
-The problem stated by Royce is that these design and test steps were not very
+The problem stated by Royce is that these design and testing steps were not very
 well regarded, simply because they didn't directly add any business value.
 Therefore, these steps were not very valuable from a client point of view and
 were likely to be skipped. \\
@@ -38,22 +37,30 @@ For example, fixing an architectural issue in a software might require a
 complete new design and the developers will have to start all over again.
 Also a lot of bugs will only be uncovered in production because of a lack
 of testing effort, in terms of both strategy and execution.
-New versions of the software will have to made to fix them, while hoping not
-adding new problems.
+New versions of the software will have to be made in order to fix them, while
+hoping not adding new problems.
 
 Royce then proposed a model that adds extra steps to the development process,
-in order to better design the software before implementing and releasing it.
+to better design the software before implementing and better test it before
+releasing it.
 
 We'll see more details later about the workflow itself.
 The main improvement is that we now have more design steps, a dedicated step
-for testing and the operations phase.
+for testing and also one for the operations phase.
 These steps that aren't directly related to the business value of the
 software are now part of the nominal development process.
 
-This emphasis on the design of the software makes this methodology very
-\textit{document-oriented}.
-This is one of the main traits of waterfall and there're a several types of
-documents:
+\begin{figure}
+    \includegraphics[scale=0.9]{../../images/waterfall/figure_2}
+    \centering
+\end{figure}
+
+\subsubsection{Documentation}
+
+This emphasis on the design of the software makes the waterfall very
+document-oriented.
+This is one of the main traits of this methodology and there're a several
+types of documents:
 Software requirements, preliminary program design, interface design, final
 program design, test plan and operations instructions.
 These documents will help in several ways the project.
@@ -72,24 +79,93 @@ Future maintainers of the application won't have to dig into the code base to
 understand what it does, they will simply have to look at the structured
 documentation to do so.
 
-The test plan will be easier to made and execute, because we'll have a
-comprehensive overview of the program and the expected behaviour.
-While the developers are implementing the specification, the test team
-(usually the analysts) can prepare all the test cases and data sets for the
-testing phase at the end.
-
 The operations phase will also take advantage of a well documented
 application.
 Installation or deployment processes will be clearly defined and even people
-that never weren't there in the development phase will be able to start and
+that  weren't there during the development phase will be able to start and
 run the program.
+
+\subsubsection{Testing}
+
+The waterfall methodology also puts testing a bit more at upfront, by adding
+it as a required step in the development process.
+
+As we mentioned it in the previous section, this methodology is very
+document-oriented and this becomes very handy for the testing phase.
+The documentation provides a comprehensive overview of all the requirements
+and features of the application, this will greatly help for the test
+strategy.
+
+The strategy will drive the design of test cases and also define the
+required data set to execute them.
+This test plan is very important and is made even before the implementation
+phase, to ensure that the validation of the final product is doable.
+
+Once the strategy is done, the test cases redaction can be started at any
+time, whether before, after or in parallel of the implementation phase.
+This let the time to the test team to nicely prepare the test phase.
+
+\begin{figure}
+    \includegraphics{../../images/waterfall/figure_3}
+    \centering
+\end{figure}
+
+\textit{Documentation} and \textit{Testing} are really the two new main
+concepts of the waterfall methodology.
+The documentation hepls to structure the software development process and
+makes easier to write and execute.
 
 \subsection{Workflow}\label{subsec:workflow}
 
-\begin{figure}
-    \includegraphics[scale=0.9]{waterfall/figure_2}
-    \centering
-\end{figure}
+This section is going to describe the workflow of the waterfall methodology.
+Going from the design phases to the operations, it'll cover how the
+different teams interact and work in each phase.
+Some commonly used tools will also be presented to illustrate the workflow.
+
+\subsubsection{Design phase}
+% TODO needs
+% TODO requirements
+% TODO solution (specs)
+% TODO mapping between requirements and solution
+% TODO add the use of an ALM tool
+
+\subsubsection{Test Strategy}
+% TODO read over
+% TODO mapping between test cases and requirements
+This step can be done by the analysts that wrote the specification or could be
+handled by a complete external team, with dedicated professional testers.
+Thanks to the documentation written in the design phases, it's now completely
+possible and the project will be able to leverage the experience of these
+testers and have a better strategy.
+
+During the test strategy, every requirement is analyzed to determine which
+the acceptance test suite must be run in order to validate the feature.
+The global workflow, dataset, environment setup etc.
+Everything is planed before to make sure that the actual software design and
+architecture can be validated in the end.
+
+\subsubsection{Implementation}
+% TODO read over
+% TODO add a basic dev workflow
+Once the implementation phase completed, some
+preliminary checks must be done by the developers, like visual inspection
+by a peer or code reviews.
+A certain amount of bugs can therefore be immediately fixed at a very low cost.
+After these checks are done, the real testing phase can start.
+
+\subsubsection{Testing phase}
+% TODO read over
+% TODO add the use of test / ALM tools
+All the test cases written following the testing strategy are executed by the
+testers.
+Every bug or unexpected behaviour will raise a new defect.
+The defect are collected at the end of testing phase and given to the dev
+team to fix them.
+
+The previously failed tests are then executed again to ensure that the bug
+are fixed.
+This cycle is repeated until there is no more defects, then only the testing
+phase can end.
 
 \subsection{Limits}\label{subsec:limits}
 
