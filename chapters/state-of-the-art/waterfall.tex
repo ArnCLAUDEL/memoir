@@ -50,6 +50,7 @@ for testing and also one for the operations phase.
 These steps that aren't directly related to the business value of the
 software are now part of the nominal development process.
 
+%TODO remove this figure as we do not describe the steps in the workflow ?
 \begin{figure}
     \includegraphics[scale=0.9]{../../images/waterfall/figure_2}
     \centering
@@ -105,6 +106,7 @@ Once the strategy is done, the test cases redaction can be started at any
 time, whether before, after or in parallel of the implementation phase.
 This let the time to the test team to nicely prepare the test phase.
 
+% TODO remove this bulky figure ? Will the associated section still be ok ?
 \begin{figure}
     \includegraphics{../../images/waterfall/figure_3}
     \centering
@@ -119,15 +121,62 @@ makes easier to write and execute.
 
 This section is going to describe the workflow of the waterfall methodology.
 Going from the design phases to the operations, it'll cover how the
-different teams interact and work in each phase.
-Some commonly used tools will also be presented to illustrate the workflow.
+different teams work in each phase.
+Some steps have been grouped into to a single sub section to make the
+workflow smoother.
+
+%https://www.guru99.com/hp-alm-introduction.html
+The workflow will be illustrated with the use of an Application
+Lifecycle Management tool.
+An ALM tool is here too help the end-to-end management of a software project,
+from the design to delivery.
+All the requirements, specifications, test plans etc.
+are centralized in this kind of tool.
+
+\begin{figure}
+    \includegraphics{../../images/waterfall/alm_workflow.jpg}
+    % TODO fix alignement
+\end{figure}
 
 \subsubsection{Design phase}
-% TODO needs
-% TODO requirements
-% TODO solution (specs)
-% TODO mapping between requirements and solution
-% TODO add the use of an ALM tool
+The design phase is the first and most important in waterfall.
+This phase can be decomposed into several steps: gather the customer
+needs, define the requirements and design the solution.
+Let's dig into each step.
+
+The gathering of the customer needs is the first step of the design phase.
+This is where the client presents its high level business needs to the
+analysts and architects.
+This can be done through workshops, meetings, presentations etc.
+The commonly used supports are word documents or slides.
+
+Once the analysts and architects have a clear understanding of the customer
+needs, they will propose an architecture and the requirements.
+Even if the solution isn't fully defined yet, the global architecture should be
+able to fulfil all the requirements.
+
+The requirements can be seen as a low-level representation of the customer
+needs.
+They are written by the analysts, validated by the client and managed using
+the ALM tool, in order to keep them organized, centralized and formalized.
+
+When the proposed architecture and requirements are validated by the client,
+the specification of the solution can start.
+In this phase, each requirement is analyzed and declined into a sub set of
+specifications that will satisfy it.
+These specifications can be either functional or non-functional.
+The difference between the two is that a functional specification will
+describe how the system should \textit{behave}, where the non functional will
+define \textit{how} to do it.
+
+All specifications will also be stored in the ALM tool and be mapped to
+the requirements they cover.
+One great advantage of an ALM tool is to compute the coverage of the
+specifications.
+We can see at a glance if there is a requirement that is not associated to at
+least one specification.
+This will prevent us from forgetting a requirement during the specification
+phase.
 
 \subsubsection{Test Strategy}
 % TODO read over
