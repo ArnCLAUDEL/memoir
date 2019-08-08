@@ -114,7 +114,7 @@ This let the time to the test team to nicely prepare the test phase.
 
 \textit{Documentation} and \textit{Testing} are really the two new main
 concepts of the waterfall methodology.
-The documentation hepls to structure the software development process and
+The documentation helps to structure the software development process and
 makes easier to write and execute.
 
 \subsection{Workflow}\label{subsec:workflow}
@@ -179,19 +179,26 @@ This will prevent us from forgetting a requirement during the specification
 phase.
 
 \subsubsection{Test Strategy}
-% TODO read over
-% TODO mapping between test cases and requirements
 This step can be done by the analysts that wrote the specification or could be
-handled by a complete external team, with dedicated professional testers.
-Thanks to the documentation written in the design phases, it's now completely
-possible and the project will be able to leverage the experience of these
-testers and have a better strategy.
+handled by a complete external team, made of dedicated professional testers.
+Thanks to all the documentation written in the design phases and the ALM tool,
+it's indeed possible to externalize the testing phases and the project will be
+able to leverage the experience of these professional testers.
 
-During the test strategy, every requirement is analyzed to determine which
-the acceptance test suite must be run in order to validate the feature.
+During the test strategy, every specification is analyzed to determine which
+acceptance test suite must be run in order to validate the feature.
 The global workflow, dataset, environment setup etc.
 Everything is planed before to make sure that the actual software design and
 architecture can be validated in the end.
+
+The ALM tool is again very useful because it allows to compute the coverage
+of our specifications.
+It's the same principle as the previous section, it simply checks if every
+requirement as at least one associated test.
+The coverage however can sometime be misleading because it may be complex to
+represent every possible path for every requirement.
+Therefore a requirement can be covered by a test, but in fact there's only one
+nominal test case, and the other rare, but possible, patsh are not tested.
 
 \subsubsection{Implementation}
 % TODO read over
