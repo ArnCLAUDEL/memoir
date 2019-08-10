@@ -225,12 +225,37 @@ It's not an exhaustive testing phase, it simply avoids to deliver a software
 that will explode after two tests.
 
 \subsubsection{Testing phase}
-% TODO tests are written now (or possibly in parallel of the dev)
-% TODO a test plan is made using the ALM tool
-% TODO test plan is executed using the ALM tool
-% TODO defects and proof of validation are reported
-% TODO round trip when defects are detected
-% TODO delivry once there's no more (major) defect
+The testing phase is decomposed in two phases, the test cases writing and the
+their execution.
+The writing can be done either before, after or during the implementation
+phase, thanks to the already written documentation, both the dev and test
+team can work in parallel.
+
+A test plan, which simply represents all the test cases, is stored in the ALM
+tool.
+Therefore we can keep each test plan, for each version of the software.
+We can also access to the coverage of the test plan regarding the
+specifications and requirements.
+
+The test plan can also be executed using the ALM tool.
+Each test case can be started by a tester, that will do the action specified in
+each test step.
+He will then compare the expected result vs the actual result and add a proof
+of validation (like a screenshot or log files).
+When the actual result is wrong, a new defect will be raised with a detailed
+description of the error.
+
+Once the test plan is completely executed, all the defects are collected and
+analyzed.
+The dev team will receive the list of the bugs to fix and will start over a
+new dev phase and deliver a new release candidate.
+This round trip between the dev and test team will occur while new defects
+are uncovered.
+Sometimes, because of delivery deadlines, minor defects will be kept if there
+is no major defect.
+
+After this testing phase, the release candidate is now validated and becomes
+the final release version of the software.
 
 \subsection{Limits}\label{subsec:limits}
 
