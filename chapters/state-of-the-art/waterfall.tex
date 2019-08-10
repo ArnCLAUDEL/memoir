@@ -106,12 +106,6 @@ Once the strategy is done, the test cases redaction can be started at any
 time, whether before, after or in parallel of the implementation phase.
 This let the time to the test team to nicely prepare the test phase.
 
-% TODO remove this bulky figure ? Will the associated section still be ok ?
-\begin{figure}
-    \includegraphics{../../images/waterfall/figure_3}
-    \centering
-\end{figure}
-
 \textit{Documentation} and \textit{Testing} are really the two new main
 concepts of the waterfall methodology.
 The documentation helps to structure the software development process and
@@ -198,30 +192,45 @@ requirement as at least one associated test.
 The coverage however can sometime be misleading because it may be complex to
 represent every possible path for every requirement.
 Therefore a requirement can be covered by a test, but in fact there's only one
-nominal test case, and the other rare, but possible, patsh are not tested.
+nominal test case.
+The others rare, but possible, paths are in fact not tested yet.
 
 \subsubsection{Implementation}
-% TODO read over
-% TODO add a basic dev workflow
-Once the implementation phase completed, some
-preliminary checks must be done by the developers, like visual inspection
-by a peer or code reviews.
+The implementation phase starts once both the specifications  and
+the test strategy are written.
+A workshop is usually organized between the analysts and the dev team to
+introduce them the business domain and the design of the global solution.
+
+The technical leader will read the specifications and create sub tasks to
+implement them.
+An estimation of the time to implement it is made for each task and they are
+then assigned to the developers.
+
+The developer works on his local workstation and will commit is work to the
+Version Control System (Git or SVN for example).
+The team can commit its work on the same branch, following the process of
+\textit{Continuous Integration} that will detail later.
+
+Once the implementation phase is completed, some preliminary checks must be
+done by the developers, like visual inspection by a peer or code reviews.
 A certain amount of bugs can therefore be immediately fixed at a very low cost.
-After these checks are done, the real testing phase can start.
+Also the team can learn from its mistakes and shouldn't do the same mistakes
+next time.
+
+The features should also be manually tested by the developers, before the real
+testers do it.
+This can be called \textit{Smoke tests}, their goal is to quickly test the
+system to see if it \textit{looks} working.
+It's not an exhaustive testing phase, it simply avoids to deliver a software
+that will explode after two tests.
 
 \subsubsection{Testing phase}
-% TODO read over
-% TODO add the use of test / ALM tools
-All the test cases written following the testing strategy are executed by the
-testers.
-Every bug or unexpected behaviour will raise a new defect.
-The defect are collected at the end of testing phase and given to the dev
-team to fix them.
-
-The previously failed tests are then executed again to ensure that the bug
-are fixed.
-This cycle is repeated until there is no more defects, then only the testing
-phase can end.
+% TODO tests are written now (or possibly in parallel of the dev)
+% TODO a test plan is made using the ALM tool
+% TODO test plan is executed using the ALM tool
+% TODO defects and proof of validation are reported
+% TODO round trip when defects are detected
+% TODO delivry once there's no more (major) defect
 
 \subsection{Limits}\label{subsec:limits}
 
