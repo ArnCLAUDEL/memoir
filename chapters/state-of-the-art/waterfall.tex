@@ -24,7 +24,7 @@ technologies it will use, its production environment and will also need time
 to verify that the software actually works.
 
 \begin{figure}
-    \includegraphics{../../images/waterfall/figure_1}
+    \includegraphics{../../images/waterfall/analysis_coding.PNG}
     \centering
 \end{figure}
 
@@ -52,7 +52,7 @@ software are now part of the nominal development process.
 
 %TODO remove this figure as we do not describe the steps in the workflow ?
 \begin{figure}
-    \includegraphics[scale=0.9]{../../images/waterfall/figure_2}
+    \includegraphics[width=\textwidth]{../../images/waterfall/waterfall.PNG}
     \centering
 \end{figure}
 
@@ -128,8 +128,7 @@ All the requirements, specifications, test plans etc.
 are centralized in this kind of tool.
 
 \begin{figure}
-    \includegraphics{../../images/waterfall/alm_workflow.jpg}
-    % TODO fix alignement
+    \includegraphics[width=\textwidth]{../../images/waterfall/alm_workflow.jpg}
 \end{figure}
 
 \subsubsection{Design phase}
@@ -291,13 +290,43 @@ This where the V-model improves the waterfall model, so we're going to
 present it.
 
 \subsection{V-Model}\label{subsec:v-model}
-% TODO more emphasis on technical test during the implementation phase
+The V-Model is a improvement of the waterfall methodology and emphasis a
+two key concepts: \textit{Verification and Validation}.
+\begin{description}
+    %https://www.softwaretestinghelp.com/what-is-stlc-v-model/
+    \item[Verification:] Verification is a static analysis technique.
+    In this technique testing is done without executing the code. \\
+    Examples include - Reviews, Inspection and walkthrough.
+    \item[Validation:] Validation is a dynamic analysis technique where
+    testing is done by executing the code. \\
+    Examples include functional and non-functional testing techniques.
+\end{description}
+
+Although these concepts were also present in the waterfall methodology, they
+were not at the forefront of the development process.
+Verification occurred at the end of the implementation phase, where the
+developers would do code reviews and visual checks.
+The validation part was during the testing phase, where the test cases
+would validate the implementation of the specifications.
+
+In the V-model, verification and validation occurs much more frequently,
+before the testing phase.
+This one has also been extended and occupies almost the half of the
+development process.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{../../images/waterfall/v_model.png}
+    % TODO fix position
+\end{figure}
+
+There're two new testing phase, \textit{Unit} and \textit{Integration}, that
+will be detailed below.
+
+\subsubsection{Unit tests}
 % TODO unit tests
+
+\subsubsection{Integration tests}
 % TODO integration tests
-% TODO more preparation means better result
-% TODO add a schema of the v-model
-% TODO mention some tool like Junit, Mockito
-% TODO include a bug fix cost chart
 
 \subsection{Residual limits}\label{subsec:residual-limits}
 % TODO documentation problems
