@@ -310,8 +310,8 @@ The validation part was during the testing phase, where the test cases
 would validate the implementation of the specifications.
 
 In the V-model, verification and validation occurs much more frequently,
-before the testing phase.
-This one has also been extended and occupies almost the half of the
+even before the testing phase.
+This last has also been extended and now occupies almost the half of the
 development process.
 
 \begin{figure}
@@ -319,14 +319,41 @@ development process.
     % TODO fix position
 \end{figure}
 
-There're two new testing phase, \textit{Unit} and \textit{Integration}, that
-will be detailed below.
+Two new kinds of tests are introduced, \textit{Unit} and \textit{Integration}
+tests.
 
-\subsubsection{Unit tests}
-% TODO unit tests
+\subsubsection{Unit testing}
+Unit tests are at a very low level and only verify  a method, component or
+service alone, without its dependencies or external environment.
+The System Under Test (SUT) is completely isolated and tested against specific
+input and output.
+This kind of tests asserts that the component works correctly, at least when
+he's alone in a fake environment.
 
-\subsubsection{Integration tests}
-% TODO integration tests
+Tools such as \textit{Mockito} (and similar libraries) are very useful for
+unit testing.
+They allow to control the external services the component might need to
+correctly be tested, like a database or a web service.
+
+\subsubsection{Integration testing}
+Integration tests are at a higher level and will test a component in a real
+environment.
+The other modules shouldn't be mocked, so the interactions between the SUT
+and its environment are also verified.
+Sometimes, modules are not yet developed or are not accessible from the
+integration environment.
+In this situation, mocking is allowed and should be as close as possible to the
+real service.
+
+Integration tests are a bit more difficult to write, because you need to have
+all your other modules working correctly to not distort the test of the SUT\@.
+These tests also usually require a bunch of data in the database or from some
+web services, therefore a dataset must generated before the integration test.
+
+In common web application framework, test utility libraries are provided to
+easily set up an environment for integration testing.
+When it's not provided, it requires to make a custom environment and can
+quickly become costly to maintain.
 
 \subsection{Residual limits}\label{subsec:residual-limits}
 % TODO documentation problems
