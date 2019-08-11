@@ -114,7 +114,7 @@ makes easier to write and execute.
 \subsection{Workflow}\label{subsec:workflow}
 
 This section is going to describe the workflow of the waterfall methodology.
-Going from the design phases to the operations, it'll cover how the
+Going from the design phases to the release, it'll cover how the
 different teams work in each phase.
 Some steps have been grouped into to a single sub section to make the
 workflow smoother.
@@ -220,7 +220,7 @@ next time.
 The features should also be manually tested by the developers, before the real
 testers do it.
 This can be called \textit{Smoke tests}, their goal is to quickly test the
-system to see if it \textit{looks} working.
+system to see if it \textit{looks like} working.
 It's not an exhaustive testing phase, it simply avoids to deliver a software
 that will explode after two tests.
 
@@ -258,11 +258,45 @@ After this testing phase, the release candidate is now validated and becomes
 the final release version of the software.
 
 \subsection{Limits}\label{subsec:limits}
-% TODO there is no real testing phase by the developers before the QA
-% TODO too many round trips
+The waterfall model as it is, has some limits in practice and this section is
+going to highlight the main one, that the V-model tries to solve.
+The rest of the limits, shared between the waterfall and the V-model will be
+mentioned later.
+
+We've seen that the waterfall improved a classic development process by
+adding extra design steps and a testing phase.
+This testing phase is now mandatory and ensure that the released software is
+working correctly.
+When bugs are detected during this phase, new defects are created and sent to
+the dev team.
+This makes a costly round trip, in terms of time and therefore money.
+
+The code of a software rarely works the first time, so the first round trip
+raises a lot of defects.
+Sometimes, a defect is tagged as \textit{blocking}, which means that some other
+test cases cannot even be executed because of this bug.
+The dev team need to fix it immediately and the whole test campaign must be
+started over from scratch.
+
+The problem comes from the abrupt transition between the implementation phase
+and the testing phase.
+Except the visual inspection and code reviews, there is no real test made by
+the developers.
+Hence the software is sent to the test team when it \textit{looks like}
+working and it's likely to contains a lot of bugs.
+
+Bugs must be detected as earlier as possible, even before the
+testing phase and therefore by the developers.
+This where the V-model improves the waterfall model, so we're going to
+present it.
 
 \subsection{V-Model}\label{subsec:v-model}
 % TODO more emphasis on technical test during the implementation phase
+% TODO unit tests
+% TODO integration tests
 % TODO more preparation means better result
 % TODO add a schema of the v-model
 % TODO mention some tool like Junit, Mockito
+% TODO include a bug fix cost chart
+
+\subsection{Residual limits}\label{subsec:residual-limits}
