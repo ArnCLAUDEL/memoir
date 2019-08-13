@@ -356,11 +356,54 @@ When it's not provided, it requires to make a custom environment and can
 quickly become costly to maintain.
 
 \subsection{Residual limits}\label{subsec:residual-limits}
-% TODO documentation problems
-% TODO dev and analysts are seperated
-% TODO both the dev and analysts interpret alone the specifications
-% TODO a lot of possible human error: spec, code, test cases writing and exec
+Now that we've covered the waterfall methodology and its improved version, the
+V-model, we are going to list the residual problems of our development
+process.
+We'll see the limitations of the V-model in term of testing and also some
+issues with the current document-oriented approach.
+
+\subsubsection{Testing in V-model}
+The V-model has significantly improved the waterfall methodology by adding
+new kinds of test, in order to detect the bugs as soon as possible, using
+Unit and Integration tests.
+However, these tests have still one major issue, they always come after the
+implementation phase.
+
+When the code of a feature is written, the developer will write a unit test
+for it.
+He will have a fresh idea of the code he just written, therefore he will
+usually go very straight forward.
+He'll look at his code, see what are the expected parameters, the possible path
+of the if/else blocks and the return values.
+He will then write some assertions against the return values, like for example
+verifying that the setters have been called with the right values.
+He may also use a code coverage tool to see if all the lines of code are
+covered.
+
+The problem is that a test written with this approach is completely distorted
+because it will only validate what have been written, and not necessarily
+what should have been written.
+The test is adapted to work with the existing code, which means that it will
+validated the possibly already written bugs.
+If the developer has missed a logical path or an attribute to modify from the
+specification, the test won't check for it either.
+
+These potential bugs will only be covered by tests that were written against the
+specification, therefore only in the functional test phase which comes a bit
+late in the development process.
+So even if we can now detect some technical bugs thanks to the unit and
+integration tests, they're not very useful to detect real bugs.
+
+\subsubsection{Manual functional testing}
 % TODO human errors are accepted but not fixed
 % TODO automation is an optional step and usually a side task made by QA
 % TODO the fear of having to re execute a test case again
 % TODO already passed / unrelated test are not executed again
+
+\subsubsection{Documentation limits}
+% TODO too many locations
+% TODO need a constant effort to maintain up-to-date all the sources
+% TODO dev and analysts are separated
+% TODO both the dev and analysts interpret alone the specifications
+% TODO a lot of possible human error: spec, code, test cases writing and exec
+% TODO human errors are accepted but not fixed
