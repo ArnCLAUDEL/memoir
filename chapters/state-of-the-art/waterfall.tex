@@ -395,15 +395,70 @@ So even if we can now detect some technical bugs thanks to the unit and
 integration tests, they're not very useful to detect real bugs.
 
 \subsubsection{Manual functional testing}
-% TODO human errors are accepted but not fixed
-% TODO automation is an optional step and usually a side task made by QA
-% TODO the fear of having to re execute a test case again
-% TODO already passed / unrelated test are not executed again
+Tests automation doesn't appear as a required step, making it an
+optional and secondary task.
+Automation can be done by the test team, using some popular tools like UFT,
+Selenium, SoapUI etc.
+but they are usually considered as a side project and internal to the test team.
+
+When the tests are written, they are primarily designed for humans, as they
+will execute them on first place.
+Then, if the test case is important, likely to be executed in a near future,
+it may be added to the automation set.
+However the automation can easily be skipped, when there is a tight
+deadlines because of too many round trips during the testing phase for example.
+When the software is delivered and the test are passed, new
+requirements, specifications, test strategies etc.
+must be written and there is no time anymore for the automation.
+
+When tests are executed by a human, there are two major problems.
+
+First, test execution is costly.
+Therefore, we will avoid at most to executing several times a test.
+For example, when a test passed during the previous test phase, the test
+is likely to not be re executed during the next test phase.
+This can be very dangerous because the potentially introduced regression
+won't be detected on the new release candidate.
+
+The second problem is that when a test is manually executed, human errors
+will be more tolerated rather when it's a machine that execute it.
+When there is a typo error in a text field to verify, or even in the test case
+steps, a human could tolerate it because he will understand that it's just a
+little mistake from the tester that wrote the test.
+However, when small mistakes are accumulated and test cases are inconsistent,
+the technical debt grows as well as the cost of test execution and maintenance.
+
+When a machine execute the tests, no small mistake is tolerated.
+If there is a mistake in the test steps, dataset or assertions, it will
+simply fail and it'll have to be fixed.
+% TODO quote Toyota
 
 \subsubsection{Documentation limits}
-% TODO too many locations
-% TODO need a constant effort to maintain up-to-date all the sources
-% TODO dev and analysts are separated
-% TODO both the dev and analysts interpret alone the specifications
-% TODO a lot of possible human error: spec, code, test cases writing and exec
-% TODO human errors are accepted but not fixed
+The document-oriented approach of the waterfall and V-model also introduce
+some problems.
+
+In the development process, we have a lot of possible document, customer
+needs, requirements, architecture, specification, tests plan etc.
+Each document is a source of truth on its own, and the more sources the
+harder to find who's right.
+
+Every new link between the documents add a new layer of complexity in the
+software, which increase the rate of human error.
+From the maintenance point of view, when a root document is updated, all its
+child must also be updated.
+There is no strong link between them that shows the possible inconsistency,
+it must be done manually by the team.
+
+The documentation also acts as a frontier between developers and analysts.
+They both interpret the specifications to implement the code and write the
+test, but they could interpret differently the same specification.
+In the best scenario, the divergence will be detected during the test phase,
+which come at the end of the development process.
+
+\subsection{Conclusion}\label{subsec:conclusion}
+We've seen the Waterfall methodology and the V-model, its improved version.
+We saw how the V-model tried to reduce the gap between the implementation and
+testing phase, by adding new kinds of test.
+We also covered the limits of these two methodologies, mainly regarding testing.
+We are now going to see how these kind of problems are tackled in some famous
+agile methodologies.
