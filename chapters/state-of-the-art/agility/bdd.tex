@@ -51,35 +51,95 @@ implementing and see how this feature will make the current software more
 valuable.
 
 \subsubsection{Work together}
-% TODO collaborative practice between BA, dev and testers
-% TODO stop to written requirements that need to be understood
-% TODO don't tell what they need, let them design the solution
-% TODO common sens of ownership
+BDD is a highly collaborative practice, between every member of the project,
+whether they are end users, clients, analysts, developers etc.
+BDD aims to avoid having the one-way communication between the analysts and
+developers.
+In a traditional approach, they would only provide the specifications to
+understand the needs and the business meaning of the features.
+
+When only the specifications are used to implement a solution, first the
+result will only depend on the good understanding of the needs by the
+developers.
+But the solution can potentially miss the mark and deliver a solution that
+fulfills the specifications but doesn't fit at all to the end users.
+
+In order to solve this kind of issue, a BDD project involves everyone and
+especially the end users in the process.
+This produces valuables discussions where each person bring its skills and
+knowledge, to design the best solution.
+Now they'll share the same vision of the business domain and will also feel more
+engaged in the project.
 
 \subsubsection{Embrace uncertainty}
-% TODO -- remove this section if it's too long
-% TODO assume that the requirements will change
-% TODO early feedback as much as possible
-% TODO feature prioritization
+BDD, as any agile methodology does, assumes that the needs and requirements
+will change one day or later.
+Therefore, BDD opts to have very early feedback from the stakeholders and end
+users of the developed features.
+
+As these features are defined by their expected behaviour, it's easier to
+show and to discuss about it.
+Clients can therefore easily formulate their comment, even propose a new
+behaviour if it's not what they were expecting.
+The idea is to have this feedback as soon as possible, so the team knows if
+they're going in the right direction instead of waiting for the end of the
+development phase and start all over again.
+
+This approach may also help in prioritizing the features to implement, as the
+team will always have then up-to-date state of mind of the client and end
+users.
 
 \subsubsection{Features with concrete examples}
-% TODO help to define and understand the feature
-% TODO share a common vocabulary
-% TODO old written specs are easily misunderstood
-% TODO feature exploration is great, especially for testing
+A BDD project design its features by defining their expected behaviour.
+This expected behaviour is represented by scenarios and examples.
+This examples-oriented approach is at the core of BDD and is based on
+the concept of working together.
+
+Features are described and formalized during the discussions between the
+clients and the integration team.
+To better understand each others, they must use the same vocabulary and have
+the same vision of the project.
+Examples are a very effective way of clearly communicating without being
+ambiguous when discussing about the requirements.
+
+Examples are also great for requirements exploration, where the analysts
+would ask a lot of questions to clarify certain points, define some special
+scenarios and use cases.
+Any clarification questions like 'What if this happens ?' or 'How should the
+application behave when the user inputs this ?' will produce new examples and
+maybe new features or scenarios.
 
 \subsubsection{Executable specifications}
-% TODO tells objectively when the feature is done
-% TODO serves as guideline
-% TODO one it works, it turns immediately as a non regression test
+As BDD features are defined using examples, some great tools exist to turn
+them to executable specifications.
+The idea is to use these examples as acceptance criteria, that will determine
+whether the feature is implemented or not.
+
+Each step in the scenario will be programmatically implemented and do what
+the action describes.
+These scenarios can then be automated and will turn the specification
+examples to automated acceptance tests.
+
+These executable specifications can then serves as guideline for the
+developers, as it will objectively tells when the feature is done.
+In addition, once the test passes, it automatically turns into a non regression
+test.
 
 \subsubsection{Living documentation}
-% TODO always up-to-date
-% TODO easy to read and better for newcomers
-% TODO examples are better than pages of specification
-% TODO easier for the maintainers
-% TODO easier to change an existing feature
-% TODO fix or delete a broken scenario
+The examples used to define a feature, when turned to executable
+specifications, will in the end serve as documentation.
+Every scenario represent a possible path in the application, therefore every
+working scenario can be used as documentation support.
+
+A documentation made of examples can be very useful to easily understand
+what is possible to do in the application.
+This is very great for newcomers or maintainers, as they can easily explore
+and understand the application, with this up-to-date documentation.
+
+It's also easier to evolve the application, because you simply need to change
+the scenario and its examples to define the new behaviour.
+As they are executable specifications, the team can immediately see what's
+needed to implement the new features.
 
 \subsection{Benefits}\label{subsec:benefits}
 % TODO reduced cost by only adding relevant features
