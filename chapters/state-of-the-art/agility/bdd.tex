@@ -1,19 +1,54 @@
 \section{Behavior Driven Development}\label{sec:bdd}
-%http://kilianwebservice.de:8080/documents/20195/62637/BDD_in_Action.pdf/3a6a2a
-%ef-5bf5-4ccd-a33d-e153d1a9edb3
+%http://kilianwebservice.de:8080/documents/20195/62637/BDD_in_Action.pdf/3a6a2aef-5bf5-4ccd-a33d-e153d1a9edb3
+%https://dannorth.net/introducing-bdd/
 
-% TODO source from BDD in action
-% TODO originally designed as an improved version of TDD
+This section will introduce the notion of \textit{Behaviour Driven
+Development}, with its key concepts, benefits and limits or pitfalls.
+This section is mostly based on the book \textit{BDD in Action}.
 
 \subsection{Key concepts}\label{subsec:key-concepts}
 
-% TODO intro
+\subsubsection{A new version of TDD}
+We already mentioned TDD while presenting Extreme Programming, this method
+basically consist of writing a failing test before writing any production code.
+Well few years after TDD, Dan North wrote an article to introduce BDD\@.
 
-\subsubsection{Focus on business value}
-% TODO don't try to specify everything
-% TODO ongoing conversations with users / stakeholders
-% TODO progressively build the software with business value
-% TODO understand the feature and core business goals
+Traditional unit tests written TDD are very low-level and focus primarily on
+a class or method.
+They were written to test the possible path of a method and were therefore very
+tied to the implementation.
+Dan talked about a problem he used to encounter when he was teaching TDD in
+a teams.
+People were a bit lost with TDD, on how to start, how to name its tests or how
+even to know when there is enough test for this feature.
+
+He decided to introduce some new practices and conventions to focus on the
+behaviour when writing test, instead of focusing on the implementation itself.
+This means that a test should simply describe what the method \textit{should}
+do instead of \textit{how}.
+
+\subsubsection{Focus on valuable feature}
+In traditional methods such as waterfall, the integration team starts by
+understanding all the customer needs and then designs a solution that should
+fulfill the needs.
+
+When the design is done, the developers will just have to implement a bunch
+of requirements, which when developed will shape the features of the software.
+The problem is that the end user is not really involved in the process, and
+nothing takes into account what the end user might expect when using the
+application.
+
+In addition of making the needs harder to understand, this can cause the
+development of completely useless features, that were in the design model but
+won't be used at all by the users.
+BDD tries to avoid this by bringing the end users at the center of the
+discussion.
+
+The idea is to discuss about the expected behaviour for an end user, and
+progressively build the features by only adding the business value.
+This will also help the developers to really understand what they're
+implementing and see how this feature will make the current software more
+valuable.
 
 \subsubsection{Work together}
 % TODO collaborative practice between BA, dev and testers
@@ -22,7 +57,7 @@
 % TODO common sens of ownership
 
 \subsubsection{Embrace uncertainty}
-% TODO remove this section if it's too long
+% TODO -- remove this section if it's too long
 % TODO assume that the requirements will change
 % TODO early feedback as much as possible
 % TODO feature prioritization
