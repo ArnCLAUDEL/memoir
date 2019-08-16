@@ -142,13 +142,49 @@ As they are executable specifications, the team can immediately see what's
 needed to implement the new features.
 
 \subsection{Benefits}\label{subsec:benefits}
-% TODO reduced cost by only adding relevant features
-% TODO easier to change an existing feature
-% TODO automated tests
+
+\subsubsection{Reduction of cost}
+BDD helps in reducing the overall cost of development.
+When focusing on behaviour, the team will only implement what is necessary to
+make the features working.
+This completely remove the risk of implementing a useless feature or service
+just because it was specified in the list of requirements.
+
+Having an early feedback is also very helpful.
+Instead of waiting the end of the development process to note the gap
+between the delivered solution and the actual needs, the team will be able to
+quickly know when they are drifting away.
+
+\subsubsection{Easier and safer changes}
+As mentioned when presenting the concept of executable specifications, a BDD
+project will be easier to maintain and evolve thanks its the scenarios.
+When a change is made, the automated tests will be executed and the team will
+instantly know if there is any regression.
+
+New scenarios can also pass immediately after being written, because the
+application already handles this specific example, therefore there is no need
+to implement anything.
+This is a big benefit from any TDD-like method.
+
+\subsubsection{Automated tests}
+BDD tests are almost always automated, therefore the team will have a
+comprehensive set of acceptance and non regression at disposition, which will
+greatly help for future releases.
 
 \subsection{Limits}\label{subsec:limits}
-% TODO requires high collaboration
-% TODO works better in agile
-% TODO doesn't work well in silo because of the poor communication
-% TODO doesn't work well because QA comes late
-% TODO can be costly if not written correctly
+
+Communication is at the core of BDD, therefore project with poor
+communication between clients, analysts and developers are likely to not
+benefit from BDD\@.
+
+Project organized in silo are therefore not very well suited for BDD, nor
+agility in general.
+When the clients, analysts, developers and testers aren't in the same place
+nor working together, they won't communicate enough about the business domain.
+There won't be a shared vocabulary of the business domain and this will lead
+to very low-quality scenarios.
+
+BDD can be very costly when with low-quality scenario.
+Brittle, unclear or too precise scenarios are very hard to maintain because
+they'll constantly require some modification to pass and the team is likely
+to be annoyed by these scenarios.
