@@ -37,8 +37,30 @@ This solution will try to reduce the number of links, while increasing their
 strength of the links to ease their maintenance and use them to drive the
 workflow.
 
-\subsubsection{Blind implementation phase}
-% TODO junction between dev and BA comes too late
+\subsubsection{Several interpretations of the specification}
+In the traditional workflow, the implementation phase starts after the
+specification and test strategy phases.
+Meanwhile, the testers "implements" the test strategy by writing the
+test cases for the specification.
+Once the test cases are ready, they are executed to validate that the code
+correctly implements the specification.
+
+The problem is that both the dev and test team are individually interpreting
+the specification and will write the code and test cases with their own
+mindset and understanding of the feature.
+
+The specification may contain some abstract or unclear sections, that were
+obvious to the writer but are obscure for a developer.
+It can also contain some small typo or copy paste errors.
+The developer may miss it or decide to strictly follow the specification,
+where the tester will catch the error and fix it in its test case.
+
+These both interpretations will only be confronted during the test
+execution phase.
+This late junction is likely to highlight a lot of divergences between the
+expected behaviour and the actual one.
+
+\subsubsection{Behavior vs Specification}
 % TODO developers are just developing features
 % TODO need of the behavior aspect
 
