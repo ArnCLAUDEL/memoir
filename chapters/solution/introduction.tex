@@ -1,13 +1,41 @@
 \section{Introduction}\label{sec:introduction}
 
+This introduction will cover three points of the state of the art. \\
+First, it will list the problems of the waterfall methodology / v-model
+that this solution is going to address. \\
+Then it will explain why we don't simply adopt the presented agile methods, such
+as XP or the BDD approach, instead of keeping the waterfall or v-model. \\
+Finally, it will quickly show how we are going to use some principles and
+methods of these agile methods, to be able to inject them in our new process.
+
 \subsection{Problems to address}\label{subsec:problems-to-address}
 
-% TODO intro with `why the current problems reduce the quality ?`
+This part will list the problems when using the waterfall methodology or the
+v-model.
 
 \subsubsection{Too many sources of information}
-% TODO a lot of documentation at a lot of location
-% TODO no strong link between them
-% TODO coherence mainly relies on human
+As said in the state of the art, these two methodologies are very
+document-oriented and many documents are produced throughout the project
+lifecycle.
+Documents such as requirements, specifications (technical or non-technical),
+test strategy, test cases, test execution reports etc.
+are all source of information.
+
+These documents are all related to each other by \textit{weak links}.
+A \textit{weak link} represent a link between two or more components that
+only (or heavily) relies on human effort to keep them coherent and correlated.
+Human effort is known to be unreliable and error-prone.
+
+This is one of the technology murphy's laws:
+% http://www.murphys-laws.com/murphy/murphy-technology.html
+\begin{quote}
+    Computers are unreliable, but humans are even more unreliable.
+    Any system which depends on human reliability is unreliable.
+\end{quote}
+
+This solution will try to reduce the number of links, while increasing their
+strength of the links to ease their maintenance and use them to drive the
+workflow.
 
 \subsubsection{Blind implementation phase}
 % TODO junction between dev and BA comes too late
