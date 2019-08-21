@@ -61,16 +61,33 @@ This late junction is likely to highlight a lot of divergences between the
 expected behaviour and the actual one.
 
 \subsubsection{Behavior vs Specification}
-% TODO developers are just developing features
-% TODO need of the behavior aspect
+In a document-oriented approach, when the specification and the test strategy
+are written, the implementation phase can start.
+The specification is split into sub tasks that are assigned to the developers.
+
+The developer will read the specification and then write the code implement
+it, create new classes, methods etc.
+In the v-model he will also write some unit and integration tests to validate
+its low level code and all tests pass, the specification should be correctly
+implemented.
+
+The problem is that the expected behaviour is only tested after the
+implementation of the specification.
+When the functional test pass, we can't really be sure if it passes thanks to
+the new code or if it was already supported in the application.
+Testing the behaviour after means that we don't really know how it was
+before and increase the risk of adding redundant or unreachable code.
 
 \subsubsection{Lack of confidence}
-% TODO quality actions are hard because of the lack of testing / confidence
+% TODO because there's no automated tests
+% TODO it's working, don't touch it
+% TODO documents are usually outdated
+% TODO weak links between documents make them unreliable
 
 \subsubsection{Automation as an optional step}
 % TODO automation is optional and a side step
 
-\subsection{Why not agility ?}\label{subsec:why-not-agility}
+\subsection{Why not agility ?}\label{subsec:whby-not-agility}
 
 % TODO refactor the intro to better fit this part in the solution
 
