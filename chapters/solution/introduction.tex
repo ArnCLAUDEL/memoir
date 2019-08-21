@@ -78,14 +78,37 @@ the new code or if it was already supported in the application.
 Testing the behaviour after means that we don't really know how it was
 before and increase the risk of adding redundant or unreachable code.
 
+\subsubsection{Automation as an optional step}
+In the waterfall methodology and v-model, there is no clear mention of test
+automation.
+This makes automation an optional step, that can be easily skipped when the
+project is tight on deadlines.
+
+Even when automation is set up, it usually remains as a side project, with
+only a portion of the complete test case set.
+Newly created test are not automatically added to the automated set and the
+project is likely to become obsolete and abandoned.
+
+The problem is that manual testing makes test less replayable and costly over
+time.
+As we said earlier, anything that relies on human reliability is unreliable.
+When test are written for humans and executed by humans, minor errors like
+typo, copy past or unclear statement can easily be caught and
+understood by a human.
+
+When a test is meant to be executed by a machine, it must be completely clear
+and well defined.
+This can sounds like a disadvantage, but this makes the test formal and
+rigorous.
+It will be easy to execute again and there is no room for interpretation or
+tacit knowledge.
+
 \subsubsection{Lack of confidence}
+
 % TODO because there's no automated tests
 % TODO it's working, don't touch it
 % TODO documents are usually outdated
 % TODO weak links between documents make them unreliable
-
-\subsubsection{Automation as an optional step}
-% TODO automation is optional and a side step
 
 \subsection{Why not agility ?}\label{subsec:whby-not-agility}
 
