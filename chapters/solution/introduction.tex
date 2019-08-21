@@ -104,11 +104,27 @@ It will be easy to execute again and there is no room for interpretation or
 tacit knowledge.
 
 \subsubsection{Lack of confidence}
+In traditional methodologies, when the document heavily relies on human
+effort to stay coherent, when tests are manually executed or when the
+specification are unclear and people are likely to interpret it differently,
+the entire team is going to lack of confidence in what it does.
 
-% TODO because there's no automated tests
-% TODO it's working, don't touch it
-% TODO documents are usually outdated
-% TODO weak links between documents make them unreliable
+The project components are so brittle, that any action can potentially brake
+something.
+In this context, the team will try to reduce as most as possible any
+modification of the existing base.
+Therefore, things like code refactoring, feature improvement, code deletion
+are forbidden, "just in case".
+
+The documentation is also affected by this lack of confidence, especially after
+several months and iterations.
+For example, when someone is reading the documentation and see something
+incoherent with the actual behavior of the application, it doesn't
+necessarily mean that it's bug.
+The document is likely to be outdated or the developer probably used some
+extra information elsewhere to implement this feature.
+Hence the documentation isn't trustful and we can't be sure that it actually
+represents the current application.
 
 \subsection{Why not agility ?}\label{subsec:whby-not-agility}
 
