@@ -199,13 +199,37 @@ with all the supports that helped in making it.
 
 \subsection{Use of the State of the art}\label{subsec:use-of-the-state-of-the-art}
 
+In this part, we are going to quickly explain the use and possible adaptation
+of the tools and methodologies covered during the state of the art.
+
+\subsubsection{Waterfall}
+The waterfall methodology is obviously going to be the base of our solution,
+because we want to stick with the document-oriented approach.
+The workflow itself is going to change and new phases will be added to it.
+The design phases won't be really modified, as the solution is not aiming to
+improve the conception and design principles of an application.
+
 \subsubsection{V-Model}
-% TODO stick with the document-oriented approach
-% TODO the process will be different
+The V-model is not going to be used as it is and there won't be any V shape
+to the process.
+The emphasis on the tests brought by the V-model however will be kept and
+put at the forefront even more, by adding new test-related phases to the
+workflow.
 
 \subsubsection{Extreme Programming}
-% TODO use some principles from XP like TDD, PP and CI
+Extreme Programming is an agile methodology, and as previously mentioned,
+this solution want to stay in a waterfall-like approach, so it can't be
+simply applied directly to our workflow.
+However, XP is mostly based on a simple set of rules.
+Some of them are standalone and can be directly used in any project context.
+Hence, the workflow of this solution will try to adopt some of these rules,
+such as working in TDD, Pair Programming or Continuous Integration.
 
 \subsubsection{Behavior Driven Development}
-% TODO why can't BDD be directly applied ?
-% TODO cherry pick BDD
+As the process of BDD is more suited for agile context, it currently hardly
+fits in a waterfall or V-model context.
+However this solution will make use  the principles and core concepts of the
+BDD\@.
+Therefore we'll modify the workflow by adding some new phases to be able to
+use the behaviour approach and embrace the Acceptance Test Driven Development.
+We're also going to use extensively the scenario test format with Cucumber.
