@@ -1,20 +1,132 @@
+%! Suppress = MissingImport
 \section{Detailed Workflow}\label{sec:detailed-workflow}
 
-% TODO intro
-% TODO detail each step
-% TODO show how to integrate the tool into the process
+This section is going to detail the new proposed workflow.
+It's going through each step, by detailing exactly what have been changed,
+modified or removed.
+Some tools, such as Cucumber or Gitlab, will be directly integrated to the
+step description, in order to provide concrete examples of the process
+implementation.
 
-\subsection{Design & Specs}\label{subsec:design-&-specs}
-% TODO nothing has changed
-% TODO understand needs
-% TODO formalize the requirements
-% TODO populate the ALM tool
+To keep this section straightforward and focused on the workflow, some
+implementation details or advices will be omitted and moved to the next
+sections of this chapter.
+
+\subsection{Design \& Specs}\label{subsec:design-specs}
+This first step of design and specifications is inherited from the
+document-oriented approach of the waterfall methodology and V-model.
+This step haven't really been improved nor modified and basically remains the
+same.
+
+The analysts will work with the stakeholders to understand their business
+needs and formalize their requirements.
+The architect will then design a solution that should be able to solve the
+problem.
+They will finally write the specifications of the solution that will fulfill
+the global business needs.
+
+This step is where the client is mostly involved during the workflow, because
+once he validated the documentation, it should be a standalone source of
+information for the whole development process.
+
+% TODO populate requirements and solution specification in ALM tool
+% TODO split into subsubsection if it's considered as too short
 
 \subsection{Test Strategy}\label{subsec:test-strategy}
-% TODO the overall strategy doesn't change
-% TODO the ordering now have an impact on the dev workflow
-% TODO need to prioritize the tests
-% TODO must be validated by the client before continuing
+The test strategy step is also inherited from the traditional methodologies.
+The manner or tool used to design a test strategy won't really be changed.
+However, since the context in which the tests are going to be written and
+executed will be different from the traditional one, we're going to mention
+some important points.
+
+\subsubsection{Previous context}
+Before, in traditional methodologies, the test strategy simply consisted of
+defining how to test each part of the specification, in an abstract way.
+There were various information, such as the dataset or the account type to use
+but the detailed steps weren't written yet.
+It is a kind of feasibility study on how to test the application, to ensure
+that every feature can be correctly tested.
+
+When writing the test cases, the author can assume that, when the test will
+be executed, the implementation phase will be completed and therefore all the
+features defined in the specification will be available.
+The order of test writing wasn't a problem too, because the test will be
+executed only once every tests will be designed, so there's no need of
+prioritization.
+
+\subsubsection{New context}
+In the new workflow, the context is different from the previous one.
+Tests are not executed at the end anymore, but throughout the development
+process.
+Indeed, a new test is written, it is intended to be used as an executable
+specification and drive the implementation phase.
+This will provide a quick feedback on the feature itself but also on the test
+format.
+
+At first glance, the ordering doesn't really matter since there should be
+enough information regarding the scenario and the global documentation to
+implement the feature.
+Well in fact, the problem lies on the feedback duration.
+Here is an example with a small set of modules and their dependencies.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{../../resources/images/solution/module_dependencies.png}
+    \centering
+    % TODO fix position with the related text
+\end{figure}
+
+In this figure, the \textit{Business Service 3} depends on 2 common modules
+and 1 other business service.
+When writing the scenarios, all the information will be available to the tester,
+thanks to the comprehensive specification, so there won't be any problem when
+writing it.
+
+However, when the scenario will be submitted to the developers, they will
+need all the dependent modules to be implemented in order to implement the
+\textit{Business Service 3}.
+If this scenario is written first, then it will take days to have the feedback.
+
+Furthermore, they will have to work on modules that don't have their
+scenarios written.
+Which means that they either have to wait for them or start the
+implementation without the tests, which would be like working the old
+traditional way we want to avoid.
+
+As mentioned earlier, one of the key concept of BDD is communication and it
+allows the team to have a quick feedback during the development process.
+
+\subsubsection{Defining the right strategy}
+In order to reduce the feedback duration and let the tests drive the
+implementation, the test strategy should not only cover how to test the
+solution but also in which order they should be written.
+
+The approach should be following the agile principle about building
+progressively the application, step by step.
+Every new test will produce a new feature or service and will add value
+to the application.
+The prioritization should be made regarding the importance of the module and
+its dependencies, in order to have test that are easy to implement.
+
+A feature that has a lot of unimplemented dependencies won't be a great
+candidate at the beginning, because it will require too much effort to make
+it pass.
+These dependencies, usually common services, should therefore be tested
+and implemented first, to then be able to implement business modules.
+The important idea here is to always try to produce a test, which is also an
+executable specification, that is easily doable at the time it's released.
+
+But there are some cases where it's okay to produce it even if it's not
+quickly doable.
+For example, when a module is implemented at 95\%, it's preferable to write
+the last test, so the testers can complete this module and move to another one.
+The developers will simply ignore this test for now and will take a look at
+it when its dependencies will be correctly implemented.
+
+The test strategy can also be discussed with the client.
+This can be very useful during the prioritization,when defining the set of
+core modules and services.
+Both the client and analysts will share the same vision and understanding of
+what's vital to the application and what is less important.
 
 \subsection{Acceptance Test Kickoff}\label{subsec:acceptance-test-kickoff}
 % TODO specs & requirements are already defined
