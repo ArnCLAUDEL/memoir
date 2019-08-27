@@ -215,23 +215,77 @@ If these tests are correct, then the new tests produced using the same format
 and vocabulary will also be reliable and trustful.
 
 \subsection{Test Writing}\label{subsec:test-writing}
-% TODO scenario format (UI / API / low-level) - move this to next section ?
-% TODO how to implement the steps
-% TODO we can use NoraUI
-% TODO we can improve it for the API testing
-% TODO backlog filling
-% TODO new vocabulary must be discussed with the tech lead
-% TODO use of the ALM to still have a coverage
-% TODO test that can't be automated
+This step starts right after the acceptance test kickoff finishes and the
+test base is validated.
+The testers now have the tools to write the new tests, following what
+has been defined in the test strategy.
+
+\subsubsection{Continuous Backlog Filling}
+This step runs in parallel of the implementation phase and is intended to
+drive it by continuously fill the backlog of the dev team.
+Having the two teams working parallel is a great thing as it will shorten the
+global duration of the workflow.
+
+In traditional methods, there was no problem since both team were working
+with the specification and therefore could evolve independently.
+However in this new workflow, the dev team advancement is now tied to the
+advancement of the analysts as the scenarios drive the implementation.
+This introduces new risks.
+
+There are two different risks: starvation and long feedback duration. \\
+Starvation will appear when the scenarios are produced at a lower rate than
+they are consumed, that is the developers implement faster than the tester
+write tests. \\
+In the opposite case, when scenarios are created faster than they are
+implemented, the feedback duration will increase as the developers won't
+immediately work on the new scenarios.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{../../resources/images/solution/feedback_vs_starvation.png}
+    \centering
+\end{figure}
+
+Developer starvation appears to be the worst risk, because it means
+developers being paid for waiting the analysts to work.
+A solution is to delay the start of the implementation phase and wait for a
+certain amount of scenarios to be available.
+But doing this will increase the feedback duration on the scenarios because
+nobody will immediately work on the new scenarios.
+
+There is no perfect formula and the scenarios production and consumptions
+rates aren't really predictable and can hardly be managed.
+A balanced solution seems to trade a bit of feedback in order to reduce the
+risk of developers starvation.
+This is why the start of the implementation phase is slightly delayed in our
+workflow.
+
+\subsubsection{Continuous Extension}
+When writing their scenarios, the analysts should try to reuse at most the
+existing vocabulary and use the same scenario format.
+However, as they are producing new scenarios for the rest of the
+specification, they're likely to want to introduce new domain-specific words or
+new kind of steps.
+
+This extension of the domain vocabulary should be made with the tech lead and
+some other developers, just like during the Acceptance Test Kickoff step.
+As the scenario implementations are just normal code, they should therefore be
+clean and refactored when possible.
+These phases of domain extension are perfectly suited to do also some
+refactoring, mainly removing the duplication.
+
+Test refactoring is always a critical part, because it implies to modify the
+only strong and reliable source of information of the application.
+Verification post-refactor, such as the shadowing-like technique must be done
+after to ensure that the scenario code base is still trustful.
 
 \subsection{Implementation}\label{subsec:implementation}
-% TODO consumes from the backlog
+% TODO consumes from the backlog, scenario marked as WIP
 % TODO work in TDD
 % TODO work in PP
 % TODO ci setup
 % TODO use a merge request
 % TODO feedback on the scenario if needed
-% TODO WIP tag to have an overview of the progress
+% TODO remove WIP
 
 \subsection{Qualification}\label{subsec:qualification}
 % TODO reuse the same scenario
