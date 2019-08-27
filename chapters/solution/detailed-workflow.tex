@@ -129,14 +129,90 @@ Both the client and analysts will share the same vision and understanding of
 what's vital to the application and what is less important.
 
 \subsection{Acceptance Test Kickoff}\label{subsec:acceptance-test-kickoff}
-% TODO specs & requirements are already defined
-% TODO define the domain vocabulary
-% TODO select the core scenarios
-% TODO write some samples scenarios
-% TODO tech lead must assit
-% TODO define the granularity / abstraction
-% TODO first implementations
-% TODO shadowing and validation
+This new step occurs right after the validation of the test strategy.
+Here, the team is going to set up the base of the acceptance tests that will
+be used for the rest of the workflow.
+
+In absolute, this step could have been omitted and its content included in
+the test writing steps.
+However, since the acceptance scenarios are going to be at the center of the
+development process, they must be strong and reliable.
+Therefore, they have a dedicated step to set up everything and validate the
+scenario base before starting using it.
+
+\subsubsection{Define the vocabulary}
+The vocabulary used to write the scenarios is critical.
+A scenario must be self explanatory, have clear intents by describing the
+expected behaviour.
+Hence it must use domain-specific words, so the analysts feel comfortable
+when writing it and share the same words with the developers.
+
+The definition of the vocabulary must not be done by only one side (analysts
+or developers).
+If so, the other team is likely to misunderstand the scenario or to miss the
+important business aspect of a feature.
+This would be just like in the traditional methods, where they were
+interpreting and implementing a specification, without clearly understand it.
+
+Therefore during this step, at least the tech lead should be present with the
+analysts, but it would be better to have several other members, such as the
+architect or another developer.
+
+The presence of the developers is very important because they will have to
+implement the code of the scenarios.
+Hence they can slightly adapt the vocabulary and the sentence format so it
+will be easier to write and automate.
+
+\subsubsection{Write the first scenarios}
+Once the vocabulary is defined, the first scenarios can be written.
+During the test strategy, the ordering have already been defined, so the
+first scenarios to write are already known.
+These scenario are going to be used as sample, to get familiarized
+with vocabulary and adjust it if necessary.
+
+During this phase, one important point to address is to define the correct
+abstraction and granularity of the scenarios.
+As said earlier, scenarios must be self explanatory and easily understood by
+both the analyst and developer.
+
+If the scenario is too abstract, then it will allow more interpretation and
+the result is likely to diverge from the expected result of the writer.
+In addition, it won't really \textit{drive} the implementation as it will be
+too high level.
+
+A contrario, a very detailed scenario will be less readable and will probably
+lose its \textit{domain} aspect, as it's likely to simply specify the
+technical requirements instead of describing a behavior.
+A scenario too technical will also make the analyst less comfortable with, as
+it won't use its domain words.
+
+\subsubsection{Validate the base}
+In order to validate the sample scenarios, the developers will write their
+code and execute it with the analysts.
+
+The first implementations will validate that the vocabulary used and the
+scenario format is indeed executable and easily automated.
+These implementation will be reused and extended throughout the development
+process, so they must be validated as early as possible.
+
+Once implemented, the scenario are going to be executed and validated using
+some sort of shadowing.
+Shadowing is a technique of knowledge transfer, where a new incomer will learn
+how a person does its job, by observing him and doing the same thing and
+eventually replace him.
+The previous person will validate the knowledge transfer by staying with the
+new incomer but letting him actually do the job.
+
+In this case, it's not really shadowing, because the tests are not going to
+learn from the testers.
+However, when the tests will be executed, the testers will watch what they
+are actually doing and see if the tests are valid and their verification
+relevant.
+
+This validation is a very important step to make the team confident regarding
+their test implementations.
+If these tests are correct, then the new tests produced using the same format
+and vocabulary will also be reliable and trustful.
 
 \subsection{Test Writing}\label{subsec:test-writing}
 % TODO scenario format (UI / API / low-level) - move this to next section ?
