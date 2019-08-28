@@ -4,9 +4,6 @@
 This section is going to detail the new proposed workflow.
 It's going through each step, by detailing exactly what have been changed,
 modified or removed.
-Some tools, such as Cucumber or Gitlab, will be directly integrated to the
-step description, in order to provide concrete examples of the process
-implementation.
 
 To keep this section straightforward and focused on the workflow, some
 implementation details or advices will be omitted and moved to the next
@@ -279,18 +276,135 @@ Verification post-refactor, such as the shadowing-like technique must be done
 after to ensure that the scenario code base is still trustful.
 
 \subsection{Implementation}\label{subsec:implementation}
-% TODO consumes from the backlog, scenario marked as WIP
-% TODO work in TDD
-% TODO work in PP
-% TODO ci setup
-% TODO use a merge request
-% TODO feedback on the scenario if needed
-% TODO remove WIP
+The implementation step starts slightly after the test writing step, in order
+to have a sufficient amount of scenarios to work with.
+This phase will follow some principles and methods of Extreme Programming.
+
+\subsubsection{Backlog consumption}
+The backlog of scenarios is going to be the main source of tasks for the
+developers.
+The analysts will continuously add new scenarios throughout the
+development process, which will drive the implementation phase.
+
+When a scenario is consumed, it will be marked as Work In Progress (WIP).
+This will allow to have a realtime overview of the features currently being
+implemented.
+We won't detail more the scenario lifecycle management as it will be detailed
+in a further section.
+
+\subsubsection{Work in pairs}
+Most of the features will be implemented with Pair Programming.
+As said in the state of the art, PP is useful to share practices and
+knowledge across the team and catch small mistakes earlier by using two
+brains instead of one.
+
+It was also said that there was no perfect configuration and it varies a lot
+across the project.
+Sometimes, people really struggle to work in pairs and it becomes counter
+productive to work that way.
+Therefore, PP can be replaced by more frequent peer reviews.
+
+\subsubsection{TDD in action}
+For example, in the V-model, the implementation step was followed by two extra
+steps: unit and integration phases.
+These phases have been merged into this step, as we are going to work
+in TDD\@.
+
+The scenario are helpful to drive the implementation as BDD is extension of
+TDD\@.
+However, the scenarios are not a replacement for the traditional unit and
+integration tests.
+Working with TDD implies to work and progress with very small (baby) steps.
+A scenario step tends to be too high level and abstract to be the only tests.
+
+Hence, when a scenario is assigned to a pair, the first thing to do is to
+break the scenario in smaller features.
+Pairing is especially helpful when breaking down features because it reduces
+the risk of misunderstanding or missing an important business point.
+
+Unit tests must be written to progressively build the feature bases.
+Once it's done, the developers should move to integration test to add the new
+features into the application.
+The new integration tests should drive to the initial scenario, that is the
+acceptance test.
+The feature will be correctly implemented when the acceptance test will
+pass.
+
+\subsubsection{Feature Integration}
+To integrate the feature implementations, a Continuous Integration platform
+should be available to the team.
+Build and test should continuously run, on every commit in order to detect as
+soon as possible the common integration errors.
+
+Popular git platform, like Github or Gitlab, offers great integration
+mechanism like Merge Requests (MR).
+Several validation can be added to a MR, such as triggering a build on the
+remote CI platform, analyzing the code with a tool like Sonar or virtually
+merge the code and build / analyze the merged branch.
+Each feature should have its own MR in order to ensure that the future
+codebase will stay as clean as it was before, without adding any regressions.
+
+Merge Request should be creating as soon as possible, that is when the
+feature is assigned to a pair.
+Even if the main point of MR is to validate the final implementation before
+merging, it can also be useful throughout the implementation when the MR is
+marked as \textit{Work In Progress (WIP)}.
+
+A WIP tag simply indicates that the work is not ready to be integrated but
+it doesn't mean that peer review can't be made.
+Communication and feedback are at the core of this new workflow and this can
+be applied to WIP MR\@.
+
+WIP MR makes the current advancement available for everyone else in the
+project, where each member can comment and propose new things.
+This is especially handy when the team is not working with Pair Programming,
+as it makes peer review easier.
+
+\subsubsection{Feedback on the Scenario}
+Eventually, when the feature is correctly implemented and integrated, the
+developers may send some feedback regarding the scenarios.
+Whether because the scenario was too abstract, too technical, missing a
+business point etc.
+This can only improve the quality of further scenarios.
 
 \subsection{Qualification}\label{subsec:qualification}
-% TODO reuse the same scenario
-% TODO validate at least one time each scenario ..
-% TODO .. or validate enough important scenario to trust the others
-% TODO improve test reports to add some proof (screnshots, logs, DB dump etc.)
-% TODO describe the bug workflow
-% TODO run the test that cannot be automated
+The qualification step can start once both the test writing and
+implementation finish.
+At this point, all the scenarios are passed and all their Merge Requests have
+been integrated.
+
+At first glance, there is no need of this qualification step, since we
+already have all our acceptance tests passing.
+However, not everything can be automated or written as a scenario, like UI
+style check.
+Also, mistakes from either the analyst or the developer are still possible
+and a last check can catch them before going to production.
+
+\subsubsection{Last scenario shadowing}
+The automated scenario should be validated a last time during this phase.
+In absolute, every scenario should be run again with a tester that watch
+the execution.
+But since the scenarios share the same vocabulary and steps, only a subset of
+scenarios can be validated.
+This should be enough to trust the others.
+
+\subsubsection{Manual tests}
+During this phase, all the test cases that can't be automated are executed.
+If possible, they should still be written in the scenario format, so it will
+be easier to read and maintain.
+However when a scenario is saying something like \textit{The UI should be good
+looking and the buttons well displayed}, then the scenario format is not very
+relevant.
+
+There are also some cases where the test case is very complex and can hardly
+be automated.
+It's usually the case where a project will interact with a sphere of
+projects, where some test cases will require a specific configuration or data
+in the other projects.
+
+\subsubsection{Defect lifecycle}
+When a bug is detected during the qualification, a defect will be created.
+This defect must contain a formalized sequence of steps to reproduce the bug,
+a scenario if possible.
+By adding a new scenario for each defect, we can ensure that these bugs will
+immediately be detected if they reappear again.
