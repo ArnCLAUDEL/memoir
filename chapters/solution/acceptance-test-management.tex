@@ -1,5 +1,8 @@
 \section{Acceptance Test Management}\label{sec:acceptance-test-management}
 
+This section will cover the acceptance test management, mainly regarding the
+scenarios, on how to write, sort and execute them.
+
 \subsection{Cucumber scenario format}\label{subsec:cucumber-scenario-management}
 % TODO some advice on cucumber scenario format
 
@@ -14,6 +17,59 @@
 \subsubsection{API scenario}
 % TODO we can improve NoraUI for the API testing
 
+\subsection{Scenario Tags}\label{subsec:scenario-tags}
+Cucumber tag is a very helpful feature that allow us to classify our
+scenarios into various categories.
+This non-exhaustive section is going to present several relevant categories.
+
+\subsubsection{Component Under Test}
+We already shown an example of this tag, with the UI, API and Core scenarios.
+They can be tagged using \textit{@UI}, \textit{@API} or \textit{@Core} to
+indicate that they only test a specific type of component.
+Hence it would be possible to easily execute the test only for the UI, which
+would avoid to execute everything at the same time.
+
+\subsubsection{Business Domain}
+A tag can be added to each scenario to indicate which business domain they
+belong to.
+First, just like the previous tag, it allows us to execute the test of
+specific business domain.
+But mostly, it will serve as a hint for the documentation.
+
+Scenarios are the living the documentation of the application.
+However, when there are a lot of scenarios, it can be hard to navigate
+between them and immediately understand which business domain is involved.
+Hence, adding more tags like \textit{@Mailing} or \textit{@Authentication}
+can be helpful.
+
+\subsubsection{Execution Speed}
+Some scenarios can be very long, when for example they involve asynchronous
+computation or generate a lot of data.
+These tests will inevitably slow down the entire test process and delay the
+test report of the faster ones.
+It's therefore interesting to add a hint about the execution speed or
+resource usage like \textit{@Slow} or \textit{@Heavy}.
+Their execution can be delayed so they don't block fast tests to be executed.
+
+\subsubsection{Manual Test}
+As we said earlier in the previous section of this chapter, not all the tests
+can be automated, even if they can be written as a scenario.
+However it's not necessarily useless to write them as a scenario, because
+automation is not the only advantage of this format.
+It will still contribute to the living documentation and describe the step to
+do the test, using the domain vocabulary and a standard format.
+
+Hence, manual test written as a scenario can be tagged with a
+\textit{@Manual}, so we can exclude them from the automation process but
+still include them as a normal scenario in the application.
+
+\subsubsection{Current release}
+Lastly, we can tag the scenario of the features that will be released in the
+current version.
+It will serve as an overview of what will be added and allows us to
+only execute the tests of the current version, which would reduce the
+execution time and feedback duration on the hot features.
+
 \subsection{Scenario lifecycle}\label{subsec:scenario-lifecycle}
 % TODO the lifecycle between writing and validation
 
@@ -26,17 +82,17 @@
 \subsubsection{Pending Review}
 % TODO @Review
 
-\subsection{Test group}\label{subsec:test-group}
-% TODO regroup scenarios using tags
-% TODO useful to customize the execution
-% TODO useful to have an overview
-% TODO version, complexity, importance, manual, active, environmentm, feature
-
 \subsection{Test execution}\label{subsec:test-execution}
+When there are a lot of test, especially UI tests, test execution can quickly
+get longer and longer.
+Slow tests mean on one hand longer feedback but also more costly as the CI
+platform will be heavily solicited and the team is likely to waste time waiting
+for the build to finish.
+This is why we are going to propose a new test execution strategy.
 % TODO test can be long to execute
-% TODO some test are more likely to fail than others
 
 \subsubsection{Execution Strategy}
+% TODO some test are more likely to fail than others
 % TODO local test every minute
 % TODO integration test every 10 minutes
 % TODO module test every 100 minutes
