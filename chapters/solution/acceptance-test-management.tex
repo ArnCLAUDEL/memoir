@@ -5,18 +5,123 @@ This section will cover the acceptance test management, mainly regarding the
 scenarios, on how to write, sort and execute them.
 
 \subsection{Cucumber scenario format}\label{subsec:cucumber-scenario-management}
+A cucumber scenario can be used to describe the behavior of various type of
+components, whether it would be UI, API, EDI, high level core module.
+This part will show how to write them.
 % TODO some advice on cucumber scenario format
 
 \subsubsection{Core scenario}
-% TODO homemade
-% TODO interact with the database, web services etc.
-% TODO describe busniess rule
+Core scenarios will describe most of the business service and module, at high
+level of details.
+Here is an example:
+
+\begin{verbatim}
+    Scenario: Reject request with empty description
+        Given a pending request
+        And an empty description
+        When the validation service processes it
+        Then the request is rejected
+\end{verbatim}
+
+Under the hood, the implementation of this scenario will also do simple things:
+\begin{enumerate}
+    \item Insert a new request in the database with the state 'pending'
+    \item Set an empty description to the same request
+    \item Call the business method of the validation service
+    \item Assert that the state in the database is 'rejected'
+\end{enumerate}
+
+This kind of scenario will interact with internal component, such as
+database, business services, utility modules etc.
+The scenario must be very straightforward and should try to give just enough
+details to understand the feature.
+
+As we can see, the scenario doesn't mention any column or table in the
+database nor specify all the attributes and states of the request.
+It's focused on the behavior and uses a plain english business vocabulary.
 
 \subsubsection{UI scenario}
-% TODO we can use NoraUI
+Some Cucumber UI framework already exist, such as NoraUI which provide a set
+of implemented steps using Selenium.
+Here is an example of a scenario written with NoraUI:
+
+\begin{verbatim}
+    Scenario: Login with admin account
+        Given 'HOME_PAGE' is opened
+        When I update text 'myapp.HomePage-login_field' with 'admin'
+        And I update text 'myapp.HomePage-password_field' with 'changeme'
+        And I click on 'myapp.HomePage-password_button'
+        Then the admin page is displayed
+\end{verbatim}
+
+In this scenario, most of the step are already implemented by the framework,
+which saves us a lot of redundant implementation.
+However this scenario has a problem: it's too technical.
+
+The scenario is describing each little step the user must do in order to login.
+This may sound as a great thing but it will in fact makes the maintenance a
+nightmare since we'll have to copy paste these 3 steps each time we want to
+login.
+
+A nice solution is to abstract these 3 steps into a single 'login' one.
+
+\begin{verbatim}
+    Scenario: Login with admin account
+        Given 'HOME_PAGE' is opened
+        When I log as an admin
+        Then the admin page is displayed
+\end{verbatim}
+
+The implementation would do the exact same 3 steps we've seen above, but
+would do it under the hoods.
+Removing these unwanted detailed and shortening the scenario will reduce the
+overall noise and make it easier to understand and maintain
 
 \subsubsection{API scenario}
-% TODO we can improve NoraUI for the API testing
+Testing API can be a bit tedious when writing a scenario, because it means
+writing a scenario that the fields of the request and the response in one or
+multiple scenarios.
+Let's write an example:
+
+\begin{verbatim}
+    Scenario: Webservice getDepartmentById - nominal case
+        Given a json request with the field id to 1
+        When the request is sent to the webservice getDepartmentById
+        Then the response contains the field id with 1
+        And the response contains the field name with marketing
+        And the response contains the field peopleCount with 24
+        And ..
+\end{verbatim}
+
+This kind of scenario can reach several dozens of lines if there are a lot of
+fields in the request and response.
+It's even more difficult when there are complex nested structures
+A solution to this is to put the request and response into external files and
+retrieve them in the a resources directory.
+Here is the modified version:
+
+\begin{verbatim}
+    Scenario: Webservice getDepartmentById - nominal case
+        Given the request NominalRequest_1.json
+        When the request is sent to the webservice getDepartmentById
+        Then the response is equivalent to NominalResponse_1.json
+\end{verbatim}
+
+The implementation of this scenario will simply read the request, send it to
+the webservice and compare the expected response with the actual.
+But this new scenario format has some pros and cons.
+
+This format ease the maintenance of the scenario itself, as it won't change if
+the webservice request / response change.
+It's also very generic and don't require a specific implementation for each
+webservice.
+Hence adding a new test case for a webservice is very cheap.
+It's also more concise and well suited for complex message structures.
+
+However, this approach is not very behavior nor business oriented, as we only
+talk about filename.
+Therefore the scenario won't be standalone anymore and will require the
+external files to be meaningful.
 
 \subsection{Scenario Tags}\label{subsec:scenario-tags}
 Cucumber tag is a very helpful feature that allow us to classify our
