@@ -1,3 +1,4 @@
+%! Suppress = MissingImport
 \section{Acceptance Test Management}\label{sec:acceptance-test-management}
 
 This section will cover the acceptance test management, mainly regarding the
@@ -71,33 +72,114 @@ only execute the tests of the current version, which would reduce the
 execution time and feedback duration on the hot features.
 
 \subsection{Scenario lifecycle}\label{subsec:scenario-lifecycle}
-% TODO the lifecycle between writing and validation
+This section is going to describe the lifecycle of a scenario in our new
+workflow.
+We are going to take advantage of the cucumber tags to follow the state of
+each scenario.
 
-\subsubsection{Submitted}
-% TODO @TODO
+\begin{figure}
+    \includegraphics[width=\textwidth]{../../resources/images/solution/scenario_lifecycle.png}
+    \centering
+    % TODO fix position
+\end{figure}
+
+\subsubsection{Submission}
+When a new scenario is written by an analyst, it is submitted in the backlog
+of the dev team.
+Each new scenario will be tagged with \textit{TODO} in order to easily identify
+them.
+
+\textit{@TODO} scenarios are directly added to the main branch but their
+execution will be skipped in the CI jobs.
+They're skipped because the tests of the main branch are always supposed to
+pass.
+Hence failing the job because a feature is not yet implemented would force the
+team to always look at the test report and sort between not implemented
+features and actual bug or regression.
 
 \subsubsection{Assigned}
-% TODO @WIP
+When the scenarios are assigned to a pair, a new branch is created and the
+scenarios are tagged as \textit{@WIP}.
+\textit{@WIP} tests are not ignored in the CI jobs, because the objective is
+to turn the failing scenario to a passing one.
+Therefore ignoring them would be in contradiction with our TDD approach.
+
+When a \textit{@WIP }scenario passes, the tag should be removed.
+This does not mean that the code won't be modified nor refactored, it
+just indicates that the feature is correctly implemented.
+The scenario now turns into a non regression test.
 
 \subsubsection{Pending Review}
-% TODO @Review
+When all there is no more \textit{@WIP} tag and the code has been refactored,
+the Merge Request is now ready to be reviewed.
+The review is mandatory when there was only a single developer assigned to
+the feature.
+If it was a pair, at least two people have already seen the code, so it's
+acceptable to skip the review and integrate if all the validation are
+passing, like post-merge build or Sonar analysis.
 
 \subsection{Test execution}\label{subsec:test-execution}
 When there are a lot of test, especially UI tests, test execution can quickly
-get longer and longer.
+become very long.
 Slow tests mean on one hand longer feedback but also more costly as the CI
 platform will be heavily solicited and the team is likely to waste time waiting
 for the build to finish.
 This is why we are going to propose a new test execution strategy.
-% TODO test can be long to execute
 
-\subsubsection{Execution Strategy}
-% TODO some test are more likely to fail than others
-% TODO local test every minute
-% TODO integration test every 10 minutes
-% TODO module test every 100 minutes
-% TODO appplication test every 1000 minutes
-% TODO recreate environment from scratch
+\subsubsection{Trading time}
+Feedback has been a very important point throughout this solution
+and most of the time, we tried to reduce at most the duration.
+In this section, we're going to present why it can be interesting to
+trade some feedback to save other type of resources.
 
-\subsubsection{Time vs Resources}
-% TODO trade feedback duration against CI resources
+We mentioned in the introduction the slow tests and their negative impact on
+the CI platform and team productivity.
+The thing is, running all the tests of the application for every modification
+is a great for feedback, since we ensure that nothing has been broken by the
+last commit.
+However, this implies to execute long test suites of test, even about
+completely independent modules.
+
+A solution to reduce the execution duration could be to omit certain tests,
+whether because they're slow, costly or completely unrelated.
+Of course there is always a small change of regression, but sometimes it's
+too small and executing on every commit is not worth.
+
+This will also free some CI resources, which will speed up the other build
+executions.
+Here, we are trading feedback duration on a subset of our tests, against CI
+resources and feedback duration on the hot tests, for example the tests of the
+current feature and its dependent modules.
+
+\subsubsection{On commit}
+When a commit is pushed to the CI platform, a build should automatically be
+triggered.
+When the developer pushes a commit, he mainly wants to if its work is
+correctly working on the CI platform but he also wants to know if there is no
+new regression.
+
+Here, we decided to omit the slow and unrelated tests to the build, in order
+to speed up the feedback on the interesting features.
+Hence, the unit and integration tests and only the WIP, core and current
+release scenarios will be executed.
+This ensure that the core of the application is still intact and the current
+WIP features are still working correctly.
+
+\subsubsection{Several times per day}
+The tests run on every commit are only a subset of the entire application.
+But there is still residual tests, like the slow and unrelated ones.
+Even though some of these tests are less likely to fail, we still need to run
+them.
+Hence we'll do it but at a lower frequency, like every 1 or 2 hours.
+
+These is still quick enough to catch a regression in the same day it has been
+added, without extensively consuming the CI resources.
+
+\subsubsection{Night build}
+Finally, there are some tests that are very hard to run continuously.
+Tests that require a fresh environment to run, or that are very long like
+load would use to much resources to run during the day.
+Therefore these tests can be run at night, where there is 10 hours of CI
+platform fully available.
+Cucumber tags can be used for this kind of tests, using a \textit{@Night} tag
+to exclude them during the day.
