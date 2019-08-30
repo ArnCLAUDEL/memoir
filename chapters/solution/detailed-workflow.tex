@@ -44,18 +44,18 @@ but the detailed steps weren't written yet.
 It is a kind of feasibility study on how to test the application, to ensure
 that every feature can be correctly tested.
 
-When writing the test cases, the author can assume that, when the test will
+When writing the test cases, the author can assume that when the test will
 be executed, the implementation phase will be completed and therefore all the
 features defined in the specification will be available.
 The order of test writing wasn't a problem too, because the test will be
-executed only once every tests will be designed, so there's no need of
+executed only once every tests will be written, so there's no need of
 prioritization.
 
 \subsubsection{New context}
 In the new workflow, the context is different from the previous one.
 Tests are not executed at the end anymore, but throughout the development
 process.
-Indeed, a new test is written, it is intended to be used as an executable
+Indeed, when a new test is written, it is intended to be used as an executable
 specification and drive the implementation phase.
 This will provide a quick feedback on the feature itself but also on the test
 format.
@@ -87,10 +87,7 @@ Furthermore, they will have to work on modules that don't have their
 scenarios written.
 Which means that they either have to wait for them or start the
 implementation without the tests, which would be like working the old
-traditional way we want to avoid.
-
-As mentioned earlier, one of the key concept of BDD is communication and it
-allows the team to have a quick feedback during the development process.
+traditional way that we want to avoid.
 
 \subsubsection{Defining the right strategy}
 In order to reduce the feedback duration and let the tests drive the
@@ -108,7 +105,7 @@ A feature that has a lot of unimplemented dependencies won't be a great
 candidate at the beginning, because it will require too much effort to make
 it pass.
 These dependencies, usually common services, should therefore be tested
-and implemented first, to then be able to implement business modules.
+and implemented first, so they become available for other features.
 The important idea here is to always try to produce a test, which is also an
 executable specification, that is easily doable at the time it's released.
 
@@ -149,7 +146,7 @@ or developers).
 If so, the other team is likely to misunderstand the scenario or to miss the
 important business aspect of a feature.
 This would be just like in the traditional methods, where they were
-interpreting and implementing a specification, without clearly understand it.
+interpreting and implementing a specification, without clearly understanding it.
 
 Therefore during this step, at least the tech lead should be present with the
 analysts, but it would be better to have several other members, such as the
@@ -180,8 +177,8 @@ too high level.
 A contrario, a very detailed scenario will be less readable and will probably
 lose its \textit{domain} aspect, as it's likely to simply specify the
 technical requirements instead of describing a behavior.
-A scenario too technical will also make the analyst less comfortable with, as
-it won't use its domain words.
+A scenario too technical will also make the analysts less comfortable with, as
+it won't use their domain words.
 
 \subsubsection{Validate the base}
 In order to validate the sample scenarios, the developers will write their
@@ -196,11 +193,11 @@ Once implemented, the scenario are going to be executed and validated using
 some sort of shadowing.
 Shadowing is a technique of knowledge transfer, where a new incomer will learn
 how a person does its job, by observing him and doing the same thing and
-eventually replace him.
+eventually replacing him.
 The previous person will validate the knowledge transfer by staying with the
 new incomer but letting him actually do the job.
 
-In this case, it's not really shadowing, because the tests are not going to
+In our case, it won't really be shadowing, because the tests are not going to
 learn from the testers.
 However, when the tests will be executed, the testers will watch what they
 are actually doing and see if the tests are valid and their verification
@@ -231,7 +228,7 @@ This introduces new risks.
 
 There are two different risks: starvation and long feedback duration. \\
 Starvation will appear when the scenarios are produced at a lower rate than
-they are consumed, that is the developers implement faster than the tester
+they are consumed, that is the developers implement faster than the testers
 write tests. \\
 In the opposite case, when scenarios are created faster than they are
 implemented, the feedback duration will increase as the developers won't
@@ -249,7 +246,7 @@ certain amount of scenarios to be available.
 But doing this will increase the feedback duration on the scenarios because
 nobody will immediately work on the new scenarios.
 
-There is no perfect formula and the scenarios production and consumptions
+There is no perfect formula and the scenarios production and consumption
 rates aren't really predictable and can hardly be managed.
 A balanced solution seems to trade a bit of feedback in order to reduce the
 risk of developers starvation.
@@ -266,9 +263,9 @@ new kind of steps.
 This extension of the domain vocabulary should be made with the tech lead and
 some other developers, just like during the Acceptance Test Kickoff step.
 As the scenario implementations are just normal code, they should therefore be
-clean and refactored when possible.
+cleaned and refactored when possible.
 These phases of domain extension are perfectly suited to do also some
-refactoring, mainly removing the duplication.
+refactoring, that is mainly removing the duplication.
 
 Test refactoring is always a critical part, because it implies to modify the
 only strong and reliable source of information of the application.
@@ -310,7 +307,7 @@ steps: unit and integration phases.
 These phases have been merged into this step, as we are going to work
 in TDD\@.
 
-The scenario are helpful to drive the implementation as BDD is extension of
+The scenario are helpful to drive the implementation as BDD is an extension of
 TDD\@.
 However, the scenarios are not a replacement for the traditional unit and
 integration tests.
@@ -325,26 +322,25 @@ the risk of misunderstanding or missing an important business point.
 Unit tests must be written to progressively build the feature bases.
 Once it's done, the developers should move to integration test to add the new
 features into the application.
-The new integration tests should drive to the initial scenario, that is the
-acceptance test.
+The new integration tests should drive to the initial acceptance test.
 The feature will be correctly implemented when the acceptance test will
 pass.
 
 \subsubsection{Feature Integration}
-To integrate the feature implementations, a Continuous Integration platform
-should be available to the team.
+To integrate the code, a Continuous Integration platform should be available
+to the team.
 Build and test should continuously run, on every commit in order to detect as
 soon as possible the common integration errors.
 
-Popular git platform, like Github or Gitlab, offers great integration
+Popular git platform, like Github or Gitlab, offer great integration
 mechanism like Merge Requests (MR).
-Several validation can be added to a MR, such as triggering a build on the
+Several validations can be added to a MR, such as triggering a build on the
 remote CI platform, analyzing the code with a tool like Sonar or virtually
 merge the code and build / analyze the merged branch.
 Each feature should have its own MR in order to ensure that the future
 codebase will stay as clean as it was before, without adding any regressions.
 
-Merge Request should be creating as soon as possible, that is when the
+Merge Request should be created as soon as possible, that is when the
 feature is assigned to a pair.
 Even if the main point of MR is to validate the final implementation before
 merging, it can also be useful throughout the implementation when the MR is
@@ -382,7 +378,7 @@ and a last check can catch them before going to production.
 
 \subsubsection{Last scenario shadowing}
 The automated scenario should be validated a last time during this phase.
-In absolute, every scenario should be run again with a tester that watch
+In absolute, every scenario should be run again with a tester that watches
 the execution.
 But since the scenarios share the same vocabulary and steps, only a subset of
 scenarios can be validated.

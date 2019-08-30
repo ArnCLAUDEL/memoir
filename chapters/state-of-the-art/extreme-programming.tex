@@ -56,8 +56,9 @@ First you need to write a failing test and see the red light.
 But your test cannot even run, it doesn't compile because there is
 actually no production code.
 So you create your class with empty methods in order to be able to run
-the test. \\
-And now you have a red light.
+the test.
+The test will obviously fail, because the implementation is empty and
+therefore you have a red light.
 
 \subsubsection{The Green Light}
 This red light must disappear as soon as possible, so you have to write
@@ -65,7 +66,7 @@ the minimum amount of code required to turn the light green.
 The minimum means that you are rushing to the green light, duplicated
 code, hardcoded values or worst if you want, the code simply need to
 work. \\
-Now you've reached the green light.
+When it works, you've reached the green light.
 
 \subsubsection{The Refactor Phase}
 Here you have a terrible (but working) code.
@@ -101,11 +102,12 @@ somewhere and there is a real regression.
 
 Finally, a quick mention of the two types of TDD: Detroit (Classicist)
 vs London (Mockist).
-The London style tends to overuse mocks (that will be detailed later)
-where Detroit style tries to avoid them. \\
+The London style tends to overuse mocks where Detroit style tries to avoid them.
+\\
 Detroit style is a black-box approach and doesn't want to set up the
 Collaborators of the System Under Test (SUT).
-Where London style is more like a white box and makes a clear distinction
+\\
+London style is more like a white box and makes a clear distinction
 between the SUT and its Collaborators.
 The SUT is completely isolated from its Collaborators, so the test will
 always behave exactly the same, even if a collaborator has been modified.

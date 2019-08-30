@@ -13,14 +13,14 @@ We already mentioned TDD while presenting Extreme Programming, this method
 basically consist of writing a failing test before writing any production code.
 Well few years after TDD, Dan North wrote an article to introduce BDD\@.
 
-Traditional unit tests written TDD are very low-level and focus primarily on
-a class or method.
-They were written to test the possible path of a method and were therefore very
-tied to the implementation.
+Traditional unit tests written with TDD are very low-level and focus
+primarily on a class or method.
+They were meant to drive the low-level implementation and therefore were very
+tied to it.
 Dan talked about a problem he used to encounter when he was teaching TDD in
 a teams.
 People were a bit lost with TDD, on how to start, how to name its tests or how
-even to know when there is enough test for this feature.
+even to know when there is enough tests for this feature.
 
 He decided to introduce some new practices and conventions to focus on the
 behaviour when writing test, instead of focusing on the implementation itself.
@@ -34,7 +34,7 @@ fulfill the needs.
 
 When the design is done, the developers will just have to implement a bunch
 of requirements, which when developed will shape the features of the software.
-The problem is that the end user is not really involved in the process, and
+The problem is that the end user is not really involved in the process and
 nothing takes into account what the end user might expect when using the
 application.
 
@@ -44,7 +44,7 @@ won't be used at all by the users.
 BDD tries to avoid this by bringing the end users at the center of the
 discussion.
 
-The idea is to discuss about the expected behaviour for an end user, and
+The idea is to discuss about the expected behaviour for an end user and
 progressively build the features by only adding the business value.
 This will also help the developers to really understand what they're
 implementing and see how this feature will make the current software more
@@ -75,7 +75,7 @@ engaged in the project.
 BDD, as any agile methodology does, assumes that the needs and requirements
 will change one day or later.
 Therefore, BDD opts to have very early feedback from the stakeholders and end
-users of the developed features.
+users on the developed features.
 
 As these features are defined by their expected behaviour, it's easier to
 show and to discuss about it.
@@ -83,7 +83,7 @@ Clients can therefore easily formulate their comment, even propose a new
 behaviour if it's not what they were expecting.
 The idea is to have this feedback as soon as possible, so the team knows if
 they're going in the right direction instead of waiting for the end of the
-development phase and start all over again.
+development phase and eventually start all over again.
 
 This approach may also help in prioritizing the features to implement, as the
 team will always have then up-to-date state of mind of the client and end
@@ -163,13 +163,13 @@ instantly know if there is any regression.
 
 New scenarios can also pass immediately after being written, because the
 application already handles this specific example, therefore there is no need
-to implement anything.
+to implement something.
 This is a big benefit from any TDD-like method.
 
 \subsubsection{Automated tests}
 BDD tests are almost always automated, therefore the team will have a
-comprehensive set of acceptance and non regression at disposition, which will
-greatly help for future releases.
+comprehensive set of acceptance and non regression tests at disposition, which
+will greatly help for future releases.
 
 \subsection{Limits}\label{subsec:limits}
 
@@ -184,7 +184,7 @@ nor working together, they won't communicate enough about the business domain.
 There won't be a shared vocabulary of the business domain and this will lead
 to very low-quality scenarios.
 
-BDD can be very costly when with low-quality scenario.
+BDD can be very costly with low-quality scenario.
 Brittle, unclear or too precise scenarios are very hard to maintain because
 they'll constantly require some modification to pass and the team is likely
 to be annoyed by these scenarios.

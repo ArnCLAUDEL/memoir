@@ -75,12 +75,12 @@ A nice solution is to abstract these 3 steps into a single 'login' one.
 The implementation would do the exact same 3 steps we've seen above, but
 would do it under the hoods.
 Removing these unwanted detailed and shortening the scenario will reduce the
-overall noise and make it easier to understand and maintain
+overall noise and make it easier to understand and maintain.
 
 \subsubsection{API scenario}
 Testing API can be a bit tedious when writing a scenario, because it means
-writing a scenario that the fields of the request and the response in one or
-multiple scenarios.
+writing one or more scenario with the fields of the request and the response in
+in it.
 Let's write an example:
 
 \begin{verbatim}
@@ -119,7 +119,7 @@ Hence adding a new test case for a webservice is very cheap.
 It's also more concise and well suited for complex message structures.
 
 However, this approach is not very behavior nor business oriented, as we only
-talk about filename.
+talk about filenames.
 Therefore the scenario won't be standalone anymore and will require the
 external files to be meaningful.
 
@@ -132,7 +132,7 @@ This non-exhaustive section is going to present several relevant categories.
 We already shown an example of this tag, with the UI, API and Core scenarios.
 They can be tagged using \textit{@UI}, \textit{@API} or \textit{@Core} to
 indicate that they only test a specific type of component.
-Hence it would be possible to easily execute the test only for the UI, which
+Hence it would be possible to easily execute the tests only for the UI, which
 would avoid to execute everything at the same time.
 
 \subsubsection{Business Domain}
@@ -221,10 +221,10 @@ The review is mandatory when there was only a single developer assigned to
 the feature.
 If it was a pair, at least two people have already seen the code, so it's
 acceptable to skip the review and integrate if all the validation are
-passing, like post-merge build or Sonar analysis.
+passing, such as post-merge build or Sonar analysis.
 
 \subsection{Test execution}\label{subsec:test-execution}
-When there are a lot of test, especially UI tests, test execution can quickly
+When there are a lot of tests, especially UI tests, test execution can quickly
 become very long.
 Slow tests mean on one hand longer feedback but also more costly as the CI
 platform will be heavily solicited and the team is likely to waste time waiting
@@ -242,13 +242,13 @@ the CI platform and team productivity.
 The thing is, running all the tests of the application for every modification
 is a great for feedback, since we ensure that nothing has been broken by the
 last commit.
-However, this implies to execute long test suites of test, even about
+However, this implies to execute long test suites, even the ones of
 completely independent modules.
 
 A solution to reduce the execution duration could be to omit certain tests,
 whether because they're slow, costly or completely unrelated.
-Of course there is always a small change of regression, but sometimes it's
-too small and executing on every commit is not worth.
+Of course there is always a small chance of regression, but sometimes it's
+too small to be worth it to execute on every commit.
 
 This will also free some CI resources, which will speed up the other build
 executions.
@@ -277,14 +277,14 @@ Even though some of these tests are less likely to fail, we still need to run
 them.
 Hence we'll do it but at a lower frequency, like every 1 or 2 hours.
 
-These is still quick enough to catch a regression in the same day it has been
+This is still quick enough to catch a regression in the same day it has been
 added, without extensively consuming the CI resources.
 
 \subsubsection{Night build}
 Finally, there are some tests that are very hard to run continuously.
 Tests that require a fresh environment to run, or that are very long like
 load would use to much resources to run during the day.
-Therefore these tests can be run at night, where there is 10 hours of CI
+Therefore these tests can be run at night, where there are 10 hours of CI
 platform fully available.
 Cucumber tags can be used for this kind of tests, using a \textit{@Night} tag
 to exclude them during the day.

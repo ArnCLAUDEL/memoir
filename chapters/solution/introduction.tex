@@ -22,7 +22,7 @@ test strategy, test cases, test execution reports etc.
 are all source of information.
 
 These documents are all related to each other by \textit{weak links}.
-A \textit{weak link} represent a link between two or more components that
+A \textit{weak link} represents a link between two or more components that
 only (or heavily) relies on human effort to keep them coherent and correlated.
 Human effort is known to be unreliable and error-prone.
 
@@ -34,13 +34,13 @@ This is one of the technology murphy's laws:
 \end{quote}
 
 This solution will try to reduce the number of links, while increasing their
-strength of the links to ease their maintenance and use them to drive the
+strength, in order to ease their maintenance and use them to drive the
 workflow.
 
 \subsubsection{Several interpretations of the specification}
 In the traditional workflow, the implementation phase starts after the
 specification and test strategy phases.
-Meanwhile, the testers "implements" the test strategy by writing the
+Meanwhile, the testers "implement" the test strategy by writing the
 test cases for the specification.
 Once the test cases are ready, they are executed to validate that the code
 correctly implements the specification.
@@ -55,7 +55,7 @@ It can also contain some small typo or copy paste errors.
 The developer may miss it or decide to strictly follow the specification,
 where the tester will catch the error and fix it in its test case.
 
-These both interpretations will only be confronted during the test
+These two interpretations will only be confronted during the test
 execution phase.
 This late junction is likely to highlight a lot of divergences between the
 expected behaviour and the actual one.
@@ -73,9 +73,12 @@ implemented.
 
 The problem is that the expected behaviour is only tested after the
 implementation of the specification.
-When the functional test pass, we can't really be sure if it passes thanks to
-the new code or if it was already supported in the application.
-Testing the behaviour after means that we don't really know how it was
+When the functional test pass, we can't really know if it's thanks to
+the new added code.
+Maybe the feature was already supported in the application and the new code
+wasn't even involved to make the pass the test.
+
+Testing the behaviour after means that we don't really know how it was behaving
 before and increase the risk of adding redundant or unreachable code.
 
 \subsubsection{Automation as an optional step}
@@ -100,11 +103,11 @@ When a test is meant to be executed by a machine, it must be completely clear
 and well defined.
 This can sounds like a disadvantage, but this makes the test formal and
 rigorous.
-It will be easy to execute again and there is no room for interpretation or
-tacit knowledge.
+It will be easy to execute it again and there won't be any interpretation nor
+tacit knowledge required.
 
 \subsubsection{Lack of confidence}
-In traditional methodologies, when the document heavily relies on human
+In traditional methodologies, when the documents heavily rely on human
 effort to stay coherent, when tests are manually executed or when the
 specification are unclear and people are likely to interpret it differently,
 the entire team is going to lack of confidence in what it does.
@@ -127,18 +130,8 @@ Hence the documentation isn't trustful and we can't be sure that it actually
 represents the current application.
 
 \subsection{Why not agility ?}\label{subsec:whby-not-agility}
-
-% TODO refactor the intro to better fit this part in the solution
-
-We now have an overview of the current methods and tools to improve the
-quality of our projects.
-We've seen the traditional workflow in both waterfall and V-model, and their
-limitations.
-We've also covered some agile methodologies that get rid of certain of these
-problems.
-
-An easy solution could be simply to abandon the waterfall or V-model and become
-agile.
+An easy solution to our problems could simply be to abandon the waterfall or
+V-model and become agile.
 However agile, like any other method, is not a silver bullet and sometimes,
 switching from waterfall to agile is not necessarily the solution.
 This section is going to cover some of the reasons to stay in with the
@@ -162,12 +155,12 @@ unclear and likely to change.
 Therefore in an agile context, the analysts will take the time to talk with
 the client to understand its needs.
 A real work of requirements exploration is made, to help the client
-formalize its desires.
+in formalizing its desires.
 
 However, this kind of exploration is not always needed to define the
 requirements.
-For example, public services or financial agencies etc.
-are not going to invent or discuss their needs with an analyst.
+For example, financial agencies are not going to invent or discuss their
+needs with an analyst.
 Tax rates, invoices format or government rules are already clearly defined.
 The integration team just have to retrieve all these formalized business rules.
 
@@ -176,7 +169,7 @@ Some project contexts may also not be well suited for agile and its iterative
 cycle.
 A client may not want frequent releases of its software, but rather few
 releases in a year.
-Whether it can be because software updates are expensive, which is common in
+Whether it's because software updates are expensive, which is common in
 legacy systems, or simply because there's not that much requirement changes.
 
 The client may also not have the time or the resources to be really involved
@@ -206,8 +199,8 @@ of the tools and methodologies covered during the state of the art.
 The waterfall methodology is obviously going to be the base of our solution,
 because we want to stick with the document-oriented approach.
 The workflow itself is going to change and new phases will be added to it.
-The design phases won't be really modified, as the solution is not aiming to
-improve the conception and design principles of an application.
+The design phases won't be really modified, as the solution doesn't aim to
+improve the conception / design principles of an application.
 
 \subsubsection{V-Model}
 The V-model is not going to be used as it is and there won't be any V shape
