@@ -60,14 +60,14 @@ software are now part of the nominal development process.
 
 This emphasis on the design of the software makes the waterfall very
 document-oriented.
-This is one of the main traits of this methodology and there're a several
+This is one of the main traits of this methodology and there're several
 types of documents:
 Software requirements, preliminary program design, interface design, final
 program design, test plan and operations instructions.
 These documents will help in several ways the project.
 
 The formal aspect of written documents are nice during the design
-specification by providing a tangible evidence of the understanding of a
+phase by providing a tangible evidence of the understanding of a
 requirement or the definition of a program interface.
 A misunderstanding can easily be detected during a read over phase, by the
 author, the analysts and the client.
@@ -109,14 +109,14 @@ This let the time to the test team to nicely prepare the test phase.
 \textit{Documentation} and \textit{Testing} are really the two new main
 concepts of the waterfall methodology.
 The documentation helps to structure the software development process and
-makes easier to write and execute.
+makes tests easier to write and execute.
 
 \subsection{Workflow}\label{subsec:workflow}
 
 This section is going to describe the workflow of the waterfall methodology.
 Going from the design phases to the release, it'll cover how the
 different teams work in each phase.
-Some steps have been grouped into to a single sub section to make the
+Some steps have been grouped into a single sub section to make the
 workflow smoother.
 
 %https://www.guru99.com/hp-alm-introduction.html
@@ -205,7 +205,7 @@ implement them.
 An estimation of the time to implement it is made for each task and they are
 then assigned to the developers.
 
-The developer works on his local workstation and will commit is work to the
+The developer works on his local workstation and will commit his work to the
 Version Control System (Git or SVN for example).
 The team can commit its work on the same branch, following the process of
 \textit{Continuous Integration} that will detail later.
@@ -224,7 +224,7 @@ It's not an exhaustive testing phase, it simply avoids to deliver a software
 that will explode after two tests.
 
 \subsubsection{Testing phase}
-The testing phase is decomposed in two phases, the test cases writing and the
+The testing phase is decomposed in two phases, the test cases writing and
 their execution.
 The writing can be done either before, after or during the implementation
 phase, thanks to the already written documentation, both the dev and test
@@ -274,7 +274,7 @@ The code of a software rarely works the first time, so the first round trip
 raises a lot of defects.
 Sometimes, a defect is tagged as \textit{blocking}, which means that some other
 test cases cannot even be executed because of this bug.
-The dev team need to fix it immediately and the whole test campaign must be
+The dev team needs to fix it immediately and the whole test campaign must be
 started over from scratch.
 
 The problem comes from the abrupt transition between the implementation phase
@@ -285,12 +285,12 @@ Hence the software is sent to the test team when it \textit{looks like}
 working and it's likely to contains a lot of bugs.
 
 Bugs must be detected as earlier as possible, even before the
-testing phase and therefore by the developers.
-This where the V-model improves the waterfall model, so we're going to
+testing phase and therefore it should be done by the developers.
+This is where the V-model improves the waterfall methodology, so we're going to
 present it.
 
 \subsection{V-Model}\label{subsec:v-model}
-The V-Model is a improvement of the waterfall methodology and emphasis a
+The V-Model is a improvement of the waterfall methodology and emphasis
 two key concepts: \textit{Verification and Validation}.
 \begin{description}
     %https://www.softwaretestinghelp.com/what-is-stlc-v-model/
@@ -332,7 +332,7 @@ he's alone in a fake environment.
 
 Tools such as \textit{Mockito} (and similar libraries) are very useful for
 unit testing.
-They allow to control the external services the component might need to
+They allow to control the external services that the SUT might need to
 correctly be tested, like a database or a web service.
 
 \subsubsection{Integration testing}
@@ -384,15 +384,15 @@ The problem is that a test written with this approach is completely distorted
 because it will only validate what have been written, and not necessarily
 what should have been written.
 The test is adapted to work with the existing code, which means that it will
-validated the possibly already written bugs.
+validate the possibly written bugs.
 If the developer has missed a logical path or an attribute to modify from the
 specification, the test won't check for it either.
 
-These potential bugs will only be covered by tests that were written against the
-specification, therefore only in the functional test phase which comes a bit
+These potential bugs will only be uncovered by tests that were written against
+the specification, therefore only in the functional test phase which comes a bit
 late in the development process.
 So even if we can now detect some technical bugs thanks to the unit and
-integration tests, they're not very useful to detect real bugs.
+integration tests, they're not very useful to detect real functional bugs.
 
 \subsubsection{Manual functional testing}
 Tests automation doesn't appear as a required step, making it an
@@ -405,20 +405,20 @@ When the tests are written, they are primarily designed for humans, as they
 will execute them on first place.
 Then, if the test case is important, likely to be executed in a near future,
 it may be added to the automation set.
-However the automation can easily be skipped, when there is a tight
+However the automation can easily be skipped, when there are tight
 deadlines because of too many round trips during the testing phase for example.
-When the software is delivered and the test are passed, new
+When the software is delivered and the tests are passed, new
 requirements, specifications, test strategies etc.
 must be written and there is no time anymore for the automation.
 
 When tests are executed by a human, there are two major problems.
 
 First, test execution is costly.
-Therefore, we will avoid at most to executing several times a test.
+Therefore, we will avoid at most to execute several times the same test.
 For example, when a test passed during the previous test phase, the test
-is likely to not be re executed during the next test phase.
-This can be very dangerous because the potentially introduced regression
-won't be detected on the new release candidate.
+is likely to not be executed again during the next test phase.
+This can be very dangerous because a regression introduced in the new release
+candidate won't be detected.
 
 The second problem is that when a test is manually executed, human errors
 will be more tolerated rather when it's a machine that execute it.
@@ -440,7 +440,7 @@ some problems.
 In the development process, we have a lot of possible document, customer
 needs, requirements, architecture, specification, tests plan etc.
 Each document is a source of truth on its own, and the more sources the
-harder to find who's right.
+harder to find which one is right.
 
 Every new link between the documents add a new layer of complexity in the
 software, which increase the rate of human error.
@@ -456,7 +456,7 @@ In the best scenario, the divergence will be detected during the test phase,
 which come at the end of the development process.
 
 \subsection{Conclusion}\label{subsec:conclusion}
-We've seen the Waterfall methodology and the V-model, its improved version.
+We've seen the Waterfall methodology and its improved version, the V-model.
 We saw how the V-model tried to reduce the gap between the implementation and
 testing phase, by adding new kinds of test.
 We also covered the limits of these two methodologies, mainly regarding testing.
