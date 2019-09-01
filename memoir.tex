@@ -5,9 +5,9 @@
 \usepackage{subfiles}
 \usepackage{csquotes}
 \usepackage{textcomp}
-\usepackage{natbib}
 \usepackage{parskip}
 \usepackage{graphicx}
+\usepackage{url}
 \graphicspath{ {./resources/images/} }
 
 \pagenumbering{arabic}
@@ -33,4 +33,9 @@ How to improve the quality of a waterfall project ?
 
     \chapter{Conclusion}\label{ch:conclusion}
     \subfile{chapters/conclusion}
+
+    \nocite{*}
+    \bibliography{bibliography}
+    \bibliographystyle{ieeetr}
+
 \end{document}
